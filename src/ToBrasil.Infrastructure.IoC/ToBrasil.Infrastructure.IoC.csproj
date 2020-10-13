@@ -12,6 +12,7 @@
     <ProjectReference Include="..\ToBrasil.Application\ToBrasil.Application.csproj" />
     <ProjectReference Include="..\ToBrasil.Domain\ToBrasil.Domain.csproj" />
     <ProjectReference Include="..\ToBrasil.Infrastructure.Data\ToBrasil.Infrastructure.Data.csproj" />
+    <ProjectReference Include="..\ToBrasil.Infrastructure.Identity\ToBrasil.Infrastructure.Identity.csproj" />
   </ItemGroup>
 
 </Project>

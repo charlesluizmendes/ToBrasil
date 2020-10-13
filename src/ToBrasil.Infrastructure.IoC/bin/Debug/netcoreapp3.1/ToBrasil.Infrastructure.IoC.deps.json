@@ -11,7 +11,8 @@
           "Microsoft.Extensions.DependencyInjection": "3.1.8",
           "ToBrasil.Application": "1.0.0",
           "ToBrasil.Domain": "1.0.0",
-          "ToBrasil.Infrastructure.Data": "1.0.0"
+          "ToBrasil.Infrastructure.Data": "1.0.0",
+          "ToBrasil.Infrastructure.Identity": "1.0.0"
         },
         "runtime": {
           "ToBrasil.Infrastructure.IoC.dll": {}
@@ -879,9 +880,7 @@
       },
       "ToBrasil.Domain/1.0.0": {
         "dependencies": {
-          "Microsoft.AspNetCore.Authentication.JwtBearer": "3.1.8",
-          "Microsoft.Extensions.Identity.Stores": "3.1.8",
-          "Microsoft.IdentityModel.Tokens": "6.7.1"
+          "Microsoft.Extensions.Identity.Stores": "3.1.8"
         },
         "runtime": {
           "ToBrasil.Domain.dll": {}
@@ -897,6 +896,16 @@
         },
         "runtime": {
           "ToBrasil.Infrastructure.Data.dll": {}
+        }
+      },
+      "ToBrasil.Infrastructure.Identity/1.0.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Authentication.JwtBearer": "3.1.8",
+          "Microsoft.IdentityModel.Tokens": "6.7.1",
+          "ToBrasil.Domain": "1.0.0"
+        },
+        "runtime": {
+          "ToBrasil.Infrastructure.Identity.dll": {}
         }
       }
     }
@@ -1541,6 +1550,11 @@
       "sha512": ""
     },
     "ToBrasil.Infrastructure.Data/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ToBrasil.Infrastructure.Identity/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

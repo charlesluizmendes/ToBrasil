@@ -1327,28 +1327,20 @@
         },
         "runtime": {
           "bin/placeholder/ToBrasil.Application.dll": {}
-        },
-        "frameworkReferences": [
-          "Microsoft.AspNetCore.App"
-        ]
+        }
       },
       "ToBrasil.Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
-          "Microsoft.AspNetCore.Authentication.JwtBearer": "3.1.8",
-          "Microsoft.Extensions.Identity.Stores": "3.1.8",
-          "Microsoft.IdentityModel.Tokens": "6.7.1"
+          "Microsoft.Extensions.Identity.Stores": "3.1.8"
         },
         "compile": {
           "bin/placeholder/ToBrasil.Domain.dll": {}
         },
         "runtime": {
           "bin/placeholder/ToBrasil.Domain.dll": {}
-        },
-        "frameworkReferences": [
-          "Microsoft.AspNetCore.App"
-        ]
+        }
       },
       "ToBrasil.Infrastructure.Data/1.0.0": {
         "type": "project",
@@ -1365,6 +1357,21 @@
         },
         "runtime": {
           "bin/placeholder/ToBrasil.Infrastructure.Data.dll": {}
+        }
+      },
+      "ToBrasil.Infrastructure.Identity/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "Microsoft.AspNetCore.Authentication.JwtBearer": "3.1.8",
+          "Microsoft.IdentityModel.Tokens": "6.7.1",
+          "ToBrasil.Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/ToBrasil.Infrastructure.Identity.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ToBrasil.Infrastructure.Identity.dll": {}
         },
         "frameworkReferences": [
           "Microsoft.AspNetCore.App"
@@ -1377,17 +1384,15 @@
           "Microsoft.Extensions.DependencyInjection": "3.1.8",
           "ToBrasil.Application": "1.0.0",
           "ToBrasil.Domain": "1.0.0",
-          "ToBrasil.Infrastructure.Data": "1.0.0"
+          "ToBrasil.Infrastructure.Data": "1.0.0",
+          "ToBrasil.Infrastructure.Identity": "1.0.0"
         },
         "compile": {
           "bin/placeholder/ToBrasil.Infrastructure.IoC.dll": {}
         },
         "runtime": {
           "bin/placeholder/ToBrasil.Infrastructure.IoC.dll": {}
-        },
-        "frameworkReferences": [
-          "Microsoft.AspNetCore.App"
-        ]
+        }
       }
     }
   },
@@ -5208,6 +5213,11 @@
       "type": "project",
       "path": "../ToBrasil.Infrastructure.Data/ToBrasil.Infrastructure.Data.csproj",
       "msbuildProject": "../ToBrasil.Infrastructure.Data/ToBrasil.Infrastructure.Data.csproj"
+    },
+    "ToBrasil.Infrastructure.Identity/1.0.0": {
+      "type": "project",
+      "path": "../ToBrasil.Infrastructure.Identity/ToBrasil.Infrastructure.Identity.csproj",
+      "msbuildProject": "../ToBrasil.Infrastructure.Identity/ToBrasil.Infrastructure.Identity.csproj"
     },
     "ToBrasil.Infrastructure.IoC/1.0.0": {
       "type": "project",

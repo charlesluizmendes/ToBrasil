@@ -8,6 +8,7 @@ using ToBrasil.Domain.Interfaces.Repository;
 using ToBrasil.Domain.Interfaces.Services;
 using ToBrasil.Domain.Services;
 using ToBrasil.Infrastructure.Data.Repository;
+using ToBrasil.Infrastructure.Identity.Service;
 
 namespace ToBrasil.Infrastructure.IoC
 {
@@ -27,11 +28,15 @@ namespace ToBrasil.Infrastructure.IoC
             container.AddScoped<IUserService, UserService>();
             container.AddScoped<IPhoneService, PhoneService>();
 
-            // Infrastructure
+            // Data
 
             container.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
             container.AddScoped<IUserRepository, UserRepository>();
             container.AddScoped<IPhoneRepository, PhoneRepository>();
+
+            // Identity
+
+            container.AddScoped<ITokenService, TokenService>();
         }
     }
 }

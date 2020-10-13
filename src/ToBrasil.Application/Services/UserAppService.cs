@@ -11,12 +11,15 @@ namespace ToBrasil.Application.Services
 {
     public class UserAppService : BaseAppService<User>, IUserAppService
     {
-        public readonly IUserService _userService;
+        private readonly IUserService _userService;
+        private readonly ITokenService _tokenService;
 
-        public UserAppService(IUserService userService)
+        public UserAppService(IUserService userService,
+            ITokenService tokenService)
             : base(userService)
         {
             _userService = userService;
+            _tokenService = tokenService;
         }        
 
         public User VerifyEmail(User user)
@@ -33,7 +36,7 @@ namespace ToBrasil.Application.Services
 
         public string Token(string email)
         {
-            return _userService.Token(email);
+            return _tokenService.Token(email);
         }
     }
 }

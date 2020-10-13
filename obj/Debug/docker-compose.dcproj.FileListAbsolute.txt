@@ -48,3 +48,5 @@ D:\Visual Studio\ToBrasil\bin\Debug\ToBrasil.Infrastructure.IoC.pdb
 D:\Visual Studio\ToBrasil\obj\Debug\docker-compose.dcprojAssemblyReference.cache
 D:\Visual Studio\ToBrasil\obj\Debug\docker-compose.dcproj.CoreCompileInputs.cache
 D:\Visual Studio\ToBrasil\obj\Debug\docker-compose.dcproj.CopyComplete
+D:\Visual Studio\ToBrasil\bin\Debug\ToBrasil.Infrastructure.Identity.dll
+D:\Visual Studio\ToBrasil\bin\Debug\ToBrasil.Infrastructure.Identity.pdb

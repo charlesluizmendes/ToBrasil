@@ -14,3 +14,5 @@ D:\Visual Studio\ToBrasil\src\ToBrasil.Infrastructure.IoC\obj\Debug\netcoreapp3.
 D:\Visual Studio\ToBrasil\src\ToBrasil.Infrastructure.IoC\obj\Debug\netcoreapp3.1\ToBrasil.Infrastructure.IoC.csproj.CopyComplete
 D:\Visual Studio\ToBrasil\src\ToBrasil.Infrastructure.IoC\obj\Debug\netcoreapp3.1\ToBrasil.Infrastructure.IoC.dll
 D:\Visual Studio\ToBrasil\src\ToBrasil.Infrastructure.IoC\obj\Debug\netcoreapp3.1\ToBrasil.Infrastructure.IoC.pdb
+D:\Visual Studio\ToBrasil\src\ToBrasil.Infrastructure.IoC\bin\Debug\netcoreapp3.1\ToBrasil.Infrastructure.Identity.dll
+D:\Visual Studio\ToBrasil\src\ToBrasil.Infrastructure.IoC\bin\Debug\netcoreapp3.1\ToBrasil.Infrastructure.Identity.pdb
