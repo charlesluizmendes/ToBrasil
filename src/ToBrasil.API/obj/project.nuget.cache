@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "lpg899o6MpX8D6X2xj1AeikZbUvzqN7o8OSOiI8rVd5myIA2JaOdCVwOs5b5ecKPwjvaijbanK8ageawME0mKg==",
+  "dgSpecHash": "52/7qjFm9grp3yskMOSMj3RwQuF9IsYMse8GdgoEbjNWKMfkY4QZVZ13mxZmMjRZqfULDfBIXuqCt8KBA+voyA==",
   "success": true,
   "projectFilePath": "D:\\Visual Studio\\ToBrasil\\src\\ToBrasil.API\\ToBrasil.API.csproj",
   "expectedPackageFiles": [
@@ -40,6 +40,7 @@
     "C:\\Users\\Charles\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\Charles\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
     "C:\\Users\\Charles\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\Charles\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.10.9\\microsoft.visualstudio.azure.containers.tools.targets.1.10.9.nupkg.sha512",
     "C:\\Users\\Charles\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
     "C:\\Users\\Charles\\.nuget\\packages\\newtonsoft.json\\10.0.1\\newtonsoft.json.10.0.1.nupkg.sha512",
     "C:\\Users\\Charles\\.nuget\\packages\\runtime.native.system.data.sqlclient.sni\\4.7.0\\runtime.native.system.data.sqlclient.sni.4.7.0.nupkg.sha512",

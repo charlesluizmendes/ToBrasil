@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  tobrasil.api:
+    image: ${DOCKER_REGISTRY-}tobrasilapi
+    build:
+      context: .
+      dockerfile: src/ToBrasil.API/Dockerfile
