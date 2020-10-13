@@ -7,9 +7,7 @@ namespace ToBrasil.Domain.Interfaces.Services
 {
     public interface IUserService : IBaseService<User>
     {
-        User Login(string email);
-
-        bool VerifyEmail(string email);
+        User VerifyEmail(User user);
 
         string Token(string email);
     }

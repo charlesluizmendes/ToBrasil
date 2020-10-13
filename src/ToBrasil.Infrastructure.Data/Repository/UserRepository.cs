@@ -17,26 +17,16 @@ namespace ToBrasil.Infrastructure.Data.Repository
             : base(context)
         {
             _context = context;
-        }
+        }       
 
-        public User Login(string email)
+        public User VerifyEmail(User user)
         {
-            var user = _context.Users
+            var result = _context.Users
                 .FirstOrDefault(x => 
-                    x.Email.Equals(email)
-                    );      
-
-            return user;
-        }
-
-        public bool VerifyEmail(string email)
-        {
-            var exist = _context.User
-                .Any(x => 
-                    x.Email == email
+                    x.Email == user.Email
                     );
 
-            return exist;
+            return result;
         }
     }
 }

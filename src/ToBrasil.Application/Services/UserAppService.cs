@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using ToBrasil.Application.DTO;
 using ToBrasil.Application.Extensions;
 using ToBrasil.Application.Interfaces;
 using ToBrasil.Domain.Entities;
@@ -16,27 +17,23 @@ namespace ToBrasil.Application.Services
             : base(userService)
         {
             _userService = userService;
+        }        
+
+        public User VerifyEmail(User user)
+        {
+            return _userService.VerifyEmail(user);
         }
 
-        public bool Login(string email, string password)
+        public bool VerifyPassword(string passwordHash, string password)
         {
-            var user = _userService.Login(email);
-
-            var hash = HasherExtension.VerifyHashedPassword(user.PasswordHash, password);           
+            var hash = HasherExtension.VerifyHashedPassword(passwordHash, password);           
 
             return hash;
-        }
-
-        public bool VerifyEmail(string email)
-        {
-            return _userService.VerifyEmail(email);
         }
 
         public string Token(string email)
         {
             return _userService.Token(email);
         }
-
-        
     }
 }

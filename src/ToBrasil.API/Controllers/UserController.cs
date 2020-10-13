@@ -38,11 +38,11 @@ namespace ToBrasil.API.Controllers
             }
 
             var user = _mapper.Map<User>(cadastroDTO);
-            user.PasswordHash = HasherExtension.HashPassword(user.PasswordHash);
 
-            var verifyEmail = _userAppService.VerifyEmail(user.Email);
 
-            if (verifyEmail)
+            var verifyEmail = _userAppService.VerifyEmail(user);
+
+            if (verifyEmail != null)
             {
                 return BadRequest("E-mail já existente");
             }
@@ -63,16 +63,17 @@ namespace ToBrasil.API.Controllers
 
             var user = _mapper.Map<User>(loginDTO);
 
-            var verifyEmail = _userAppService.VerifyEmail(user.Email);
 
-            if (!verifyEmail)
+            var verifyEmail = _userAppService.VerifyEmail(user);
+
+            if (verifyEmail == null)
             {
                 return BadRequest("Usuário e/ou senha inválidos");
             }
 
-            var login = _userAppService.Login(user.Email, user.PasswordHash);
+            var verifyPassword = _userAppService.VerifyPassword(user.PasswordHash, loginDTO.Password);
 
-            if (!login)
+            if (!verifyPassword)
             {
                 return Unauthorized("Usuário e/ou senha inválidos");
             }

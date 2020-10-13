@@ -1,15 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using ToBrasil.Application.DTO;
 using ToBrasil.Domain.Entities;
 
 namespace ToBrasil.Application.Interfaces
 {
     public interface IUserAppService : IBaseAppService<User>
-    {
-        bool Login(string email, string password);
+    {      
+        User VerifyEmail(User user);
 
-        bool VerifyEmail(string email);
+        bool VerifyPassword(string passwordHash, string password);
 
         string Token(string email);
     }

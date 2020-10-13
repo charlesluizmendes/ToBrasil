@@ -7,8 +7,6 @@ namespace ToBrasil.Domain.Interfaces.Repository
 {
     public interface IUserRepository : IBaseRepository<User>
     {
-        User Login(string email);
-
-        bool VerifyEmail(string email);
+        User VerifyEmail(User user);
     }
 }

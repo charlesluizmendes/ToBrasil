@@ -13,7 +13,7 @@ namespace ToBrasil.Application.AutoMapper
         public Mapping()
         {
             CreateMap<CadastroDTO, User>()
-                .ForMember(entity => entity.PasswordHash, opt => opt.MapFrom(dto => dto.Password));
+                .ForMember(entity => entity.PasswordHash, opt => opt.MapFrom(dto => HasherExtension.HashPassword(dto.Password)));
             CreateMap<User, CadastroDTO>()
                 .ForMember(dto => dto.Password, opt => opt.MapFrom(entity => entity.PasswordHash));
 
@@ -21,7 +21,7 @@ namespace ToBrasil.Application.AutoMapper
             CreateMap<Phone, PhoneDTO>();
 
             CreateMap<LoginDTO, User>()
-                .ForMember(entity => entity.PasswordHash, opt => opt.MapFrom(dto => dto.Password));
+                .ForMember(entity => entity.PasswordHash, opt => opt.MapFrom(dto => HasherExtension.HashPassword(dto.Password)));
             CreateMap<User, LoginDTO>()
                 .ForMember(dto => dto.Password, opt => opt.MapFrom(entity => entity.PasswordHash));
         }

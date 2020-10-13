@@ -25,14 +25,9 @@ namespace ToBrasil.Domain.Services
             _userRepository = userRepository;
         }
 
-        public User Login(string email)
+        public User VerifyEmail(User user)
         {
-            return _userRepository.Login(email);            
-        }
-
-        public bool VerifyEmail(string email)
-        {
-            return _userRepository.VerifyEmail(email);
+            return _userRepository.VerifyEmail(user);
         }
 
         public string Token(string email)
