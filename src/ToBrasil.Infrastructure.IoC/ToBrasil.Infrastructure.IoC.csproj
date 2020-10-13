@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="3.1.8" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ToBrasil.Application\ToBrasil.Application.csproj" />
+    <ProjectReference Include="..\ToBrasil.Domain\ToBrasil.Domain.csproj" />
+    <ProjectReference Include="..\ToBrasil.Infrastructure.Data\ToBrasil.Infrastructure.Data.csproj" />
+  </ItemGroup>
+
+</Project>

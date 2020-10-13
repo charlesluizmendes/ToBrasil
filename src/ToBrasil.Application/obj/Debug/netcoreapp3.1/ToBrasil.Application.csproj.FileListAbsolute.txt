@@ -1,0 +1,12 @@
+D:\Visual Studio\ToBrasil\src\ToBrasil.Application\bin\Debug\netcoreapp3.1\ToBrasil.Application.deps.json
+D:\Visual Studio\ToBrasil\src\ToBrasil.Application\bin\Debug\netcoreapp3.1\ToBrasil.Application.dll
+D:\Visual Studio\ToBrasil\src\ToBrasil.Application\bin\Debug\netcoreapp3.1\ToBrasil.Application.pdb
+D:\Visual Studio\ToBrasil\src\ToBrasil.Application\bin\Debug\netcoreapp3.1\ToBrasil.Domain.dll
+D:\Visual Studio\ToBrasil\src\ToBrasil.Application\bin\Debug\netcoreapp3.1\ToBrasil.Domain.pdb
+D:\Visual Studio\ToBrasil\src\ToBrasil.Application\obj\Debug\netcoreapp3.1\ToBrasil.Application.csprojAssemblyReference.cache
+D:\Visual Studio\ToBrasil\src\ToBrasil.Application\obj\Debug\netcoreapp3.1\ToBrasil.Application.AssemblyInfoInputs.cache
+D:\Visual Studio\ToBrasil\src\ToBrasil.Application\obj\Debug\netcoreapp3.1\ToBrasil.Application.AssemblyInfo.cs
+D:\Visual Studio\ToBrasil\src\ToBrasil.Application\obj\Debug\netcoreapp3.1\ToBrasil.Application.csproj.CoreCompileInputs.cache
+D:\Visual Studio\ToBrasil\src\ToBrasil.Application\obj\Debug\netcoreapp3.1\ToBrasil.Application.csproj.CopyComplete
+D:\Visual Studio\ToBrasil\src\ToBrasil.Application\obj\Debug\netcoreapp3.1\ToBrasil.Application.dll
+D:\Visual Studio\ToBrasil\src\ToBrasil.Application\obj\Debug\netcoreapp3.1\ToBrasil.Application.pdb
