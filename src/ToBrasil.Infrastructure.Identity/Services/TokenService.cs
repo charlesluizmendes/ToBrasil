@@ -20,11 +20,11 @@ namespace ToBrasil.Infrastructure.Identity.Services
             _configuration = configuration;
         }
 
-        public async Task<string> CreateJwtToken(string email)
+        public async Task<string> CreateJwtToken(User user)
         {
             var claims = new[]
                 {
-                     new Claim(ClaimTypes.Email, email.ToString()),
+                     new Claim(ClaimTypes.Email, user.Email.ToString()),
                 };
 
             var key = new SymmetricSecurityKey(

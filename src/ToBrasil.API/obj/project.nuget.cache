@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "htnKJEOMbNbiR8TgWPKpdZIyZGIFh8vE+Ndf7MBQZVjp4hSnZ6h6F505i8Mrd++5olcyjrmqjX1o5fL5N5+UlA==",
+  "dgSpecHash": "vhMxwlxMOmVceJ9aJ7EDerGP0LHFxT3whFb45IV2PBy+nsNh+Zq8FFqNN6nLc9nvhcQObVpcJ+iDktQX320xiw==",
   "success": true,
   "projectFilePath": "D:\\Visual Studio\\ToBrasil\\src\\ToBrasil.API\\ToBrasil.API.csproj",
   "expectedPackageFiles": [
@@ -101,7 +101,8 @@
     "C:\\Users\\Charles\\.nuget\\packages\\system.threading.tasks.extensions\\4.3.0\\system.threading.tasks.extensions.4.3.0.nupkg.sha512",
     "C:\\Users\\Charles\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Users\\Charles\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
-    "C:\\Users\\Charles\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512"
+    "C:\\Users\\Charles\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
+    "C:\\Users\\Charles\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.2\\microsoft.aspnetcore.app.ref.3.1.2.nupkg.sha512"
   ],
   "logs": []
 }

@@ -12,15 +12,25 @@ namespace ToBrasil.Application.Services.Command
     public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, User>
     {
         private readonly IUserRepository _userRepository;
+        private readonly IPhoneRepository _phoneRepository;
 
-        public CreateUserCommandHandler(IUserRepository userRepository)
+        public CreateUserCommandHandler(IUserRepository userRepository,
+            IPhoneRepository phoneRepository)
         {
             _userRepository = userRepository;
+            _phoneRepository = phoneRepository;
         }
 
         public Task<User> Handle(CreateUserCommand request, CancellationToken cancellationToken)
         {
-           return _userRepository.InsertAsync(request.User);
+            var user = _userRepository.InsertAsync(request.User);
+
+            foreach (var item in user.Result.Phone)
+            {
+                _phoneRepository.InsertAsync(item);
+            };
+
+            return user;
         }
     }
 }

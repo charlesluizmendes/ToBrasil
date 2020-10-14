@@ -20,9 +20,9 @@ namespace ToBrasil.Infrastructure.IoC
         {
             // Command and Query
 
-            container.AddMediatR(Assembly.GetExecutingAssembly());
+            container.AddMediatR(Assembly.GetExecutingAssembly());           
+            container.AddTransient<IRequestHandler<CreateTokenCommand, User>, CreateTokenCommandHandler>();
             container.AddTransient<IRequestHandler<CreateUserCommand, User>, CreateUserCommandHandler>();
-            container.AddTransient<IRequestHandler<GetTokenByEmailQuery, string>, GetTokenByEmailQueryHandler>();
             container.AddTransient<IRequestHandler<GetUserByEmailQuery, User>, GetUserByEmailQueryHandler>();
             container.AddTransient<IRequestHandler<GetUserByLoginQuery, User>, GetUserByLoginQueryHandler>();
 
