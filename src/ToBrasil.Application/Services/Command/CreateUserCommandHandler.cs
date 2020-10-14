@@ -25,7 +25,7 @@ namespace ToBrasil.Application.Services.Command
         {
             var user = _userRepository.InsertAsync(request.User);
 
-            foreach (var item in user.Result.Phone)
+            foreach (var item in user.Result.Phones)
             {
                 _phoneRepository.InsertAsync(item);
             };

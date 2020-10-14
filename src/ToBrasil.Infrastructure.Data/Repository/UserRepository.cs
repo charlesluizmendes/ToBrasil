@@ -19,12 +19,26 @@ namespace ToBrasil.Infrastructure.Data.Repository
             : base(context)
         {
             _context = context;
-        }       
+        }
 
         public async Task<User> GetUserByEmailAsync(string email)
         {
-            var result = await _context.Users  
-                .FirstOrDefaultAsync(x => x.Email == email);
+            var result = await _context.Users
+                .Where(u => u.Email == email)
+                .Select(u => new User
+                {
+                    Id = u.Id,
+                    UserName = u.UserName,
+                    Email = u.Email,
+                    PasswordHash = u.PasswordHash,
+                    Phones = u.Phones.Where(p => p.UserId == u.Id).ToList(),
+                    Created = u.Created,
+                    Modified = u.Modified,
+                    LastLogin = u.LastLogin,
+                    Token = u.Token,
+                    ConcurrencyStamp = u.ConcurrencyStamp
+                })
+                .FirstOrDefaultAsync();
 
             return result;
         }

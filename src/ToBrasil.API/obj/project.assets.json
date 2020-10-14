@@ -1396,7 +1396,10 @@
         },
         "runtime": {
           "bin/placeholder/ToBrasil.Infrastructure.Identity.dll": {}
-        }
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
       },
       "ToBrasil.Infrastructure.IoC/1.0.0": {
         "type": "project",
@@ -1413,7 +1416,10 @@
         },
         "runtime": {
           "bin/placeholder/ToBrasil.Infrastructure.IoC.dll": {}
-        }
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
       }
     }
   },
