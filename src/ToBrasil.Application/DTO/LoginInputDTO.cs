@@ -5,7 +5,7 @@ using System.Text;
 
 namespace ToBrasil.Application.DTO
 {
-    public class LoginDTO
+    public class LoginInputDTO
     {
         [Required(ErrorMessage = "O Email não pode ser nulo")]
         [MaxLength(255, ErrorMessage = "O Email não pode ter mais de 255 carácteres")]

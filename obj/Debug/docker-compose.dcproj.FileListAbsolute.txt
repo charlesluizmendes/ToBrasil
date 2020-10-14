@@ -50,3 +50,5 @@ D:\Visual Studio\ToBrasil\obj\Debug\docker-compose.dcproj.CoreCompileInputs.cach
 D:\Visual Studio\ToBrasil\obj\Debug\docker-compose.dcproj.CopyComplete
 D:\Visual Studio\ToBrasil\bin\Debug\ToBrasil.Infrastructure.Identity.dll
 D:\Visual Studio\ToBrasil\bin\Debug\ToBrasil.Infrastructure.Identity.pdb
+D:\Visual Studio\ToBrasil\bin\Debug\MediatR.dll
+D:\Visual Studio\ToBrasil\bin\Debug\MediatR.Extensions.Microsoft.DependencyInjection.dll

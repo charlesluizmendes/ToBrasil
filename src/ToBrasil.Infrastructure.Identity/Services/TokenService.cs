@@ -5,9 +5,11 @@ using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using System.Threading.Tasks;
+using ToBrasil.Domain.Entities;
 using ToBrasil.Domain.Interfaces.Services;
 
-namespace ToBrasil.Infrastructure.Identity.Service
+namespace ToBrasil.Infrastructure.Identity.Services
 {
     public class TokenService : ITokenService
     {
@@ -18,7 +20,7 @@ namespace ToBrasil.Infrastructure.Identity.Service
             _configuration = configuration;
         }
 
-        public string Token(string email)
+        public async Task<string> CreateJwtToken(string email)
         {
             var claims = new[]
                 {
@@ -43,7 +45,7 @@ namespace ToBrasil.Infrastructure.Identity.Service
 
             var token = new JwtSecurityTokenHandler().WriteToken(jwt);
 
-            return token;
+            return await Task.FromResult<string>(token);
         }
     }
 }

@@ -1,8 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore.Internal;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Internal;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using ToBrasil.Domain.Entities;
 using ToBrasil.Domain.Interfaces.Repository;
 using ToBrasil.Infrastructure.Data.Context;
@@ -19,12 +21,10 @@ namespace ToBrasil.Infrastructure.Data.Repository
             _context = context;
         }       
 
-        public User VerifyEmail(User user)
+        public async Task<User> GetUserByEmailAsync(string email)
         {
-            var result = _context.Users
-                .FirstOrDefault(x => 
-                    x.Email == user.Email
-                    );
+            var result = await _context.Users  
+                .FirstOrDefaultAsync(x => x.Email == email);
 
             return result;
         }

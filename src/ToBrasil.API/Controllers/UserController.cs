@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
+using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ToBrasil.Application.DTO;
-using ToBrasil.Application.Extensions;
-using ToBrasil.Application.Interfaces;
+using ToBrasil.Application.Services.Command;
+using ToBrasil.Application.Services.Query;
 using ToBrasil.Domain.Entities;
 
 namespace ToBrasil.API.Controllers
@@ -17,20 +18,17 @@ namespace ToBrasil.API.Controllers
     public class UserController : ControllerBase
     {
         private readonly IMapper _mapper;
-        private readonly IUserAppService _userAppService;
-        private readonly IPhoneAppService _phoneAppService;
+        private readonly IMediator _mediator;
 
         public UserController(IMapper mapper,
-            IUserAppService userAppService,
-            IPhoneAppService phoneAppService)
+            IMediator mediator)
         {
             _mapper = mapper;
-            _userAppService = userAppService;
-            _phoneAppService = phoneAppService;
+            _mediator = mediator;
         }
 
         [HttpPost("Cadastro")]
-        public ActionResult Cadastro(CadastroDTO cadastroDTO)
+        public async Task<ActionResult<CadastroOutputDTO>> Cadastro(CadastroInputDTO cadastroDTO)
         {
             if (!ModelState.IsValid)
             {
@@ -39,22 +37,29 @@ namespace ToBrasil.API.Controllers
 
             var user = _mapper.Map<User>(cadastroDTO);
 
+            var email = await _mediator.Send(new GetUserByEmailQuery
+            {
+                Email = user.Email
+            });
 
-            var verifyEmail = _userAppService.VerifyEmail(user);
-
-            if (verifyEmail != null)
+            if (email != null)
             {
                 return BadRequest("E-mail já existente");
             }
 
-            _userAppService.Insert(user);
-            _userAppService.Commit();
+            await _mediator.Send(new CreateUserCommand
+            {
+                User = user
+            });            
 
-            return new ObjectResult(cadastroDTO);
+            return new ObjectResult(new CadastroOutputDTO
+            {
+                Cadastro = cadastroDTO
+            });
         }
 
         [HttpPost("Login")]
-        public ActionResult Login(LoginDTO loginDTO)
+        public async Task<ActionResult<LoginOutputDTO>> Login(LoginInputDTO loginDTO)
         {
             if (!ModelState.IsValid)
             {
@@ -63,25 +68,34 @@ namespace ToBrasil.API.Controllers
 
             var user = _mapper.Map<User>(loginDTO);
 
+            var email = await _mediator.Send(new GetUserByEmailQuery
+            {
+                Email = user.Email
+            });
 
-            var verifyEmail = _userAppService.VerifyEmail(user);
-
-            if (verifyEmail == null)
+            if (email == null)
             {
                 return BadRequest("Usuário e/ou senha inválidos");
             }
 
-            var verifyPassword = _userAppService.VerifyPassword(user.PasswordHash, loginDTO.Password);
+            var login = await _mediator.Send(new GetUserByLoginQuery
+            {
+                Email = user.Email,
+                PasswordHash = user.PasswordHash
+            });
 
-            if (!verifyPassword)
+            if (login == null)
             {
                 return Unauthorized("Usuário e/ou senha inválidos");
             }
 
-            var token = _userAppService.Token(user.Email);
+            var token = await _mediator.Send(new GetTokenByEmailQuery
+            {
+                Email = user.Email
+            });
 
-            return Ok(new
-            {               
+            return Ok(new LoginOutputDTO
+            {
                 Login = loginDTO,
                 Token = token
             });

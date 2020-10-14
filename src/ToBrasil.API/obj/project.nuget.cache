@@ -1,11 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "ttsu/9oPi3kCuaZLgfzOfy3AbygDP1WKACDC9uDC1Eqv4WgBI/1HJFHk66dNt5pfxbgwwn8/guAVF/T2q64lQA==",
+  "dgSpecHash": "htnKJEOMbNbiR8TgWPKpdZIyZGIFh8vE+Ndf7MBQZVjp4hSnZ6h6F505i8Mrd++5olcyjrmqjX1o5fL5N5+UlA==",
   "success": true,
   "projectFilePath": "D:\\Visual Studio\\ToBrasil\\src\\ToBrasil.API\\ToBrasil.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Charles\\.nuget\\packages\\automapper\\10.0.0\\automapper.10.0.0.nupkg.sha512",
     "C:\\Users\\Charles\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.0.1\\automapper.extensions.microsoft.dependencyinjection.8.0.1.nupkg.sha512",
+    "C:\\Users\\Charles\\.nuget\\packages\\mediatr\\9.0.0\\mediatr.9.0.0.nupkg.sha512",
+    "C:\\Users\\Charles\\.nuget\\packages\\mediatr.extensions.microsoft.dependencyinjection\\9.0.0\\mediatr.extensions.microsoft.dependencyinjection.9.0.0.nupkg.sha512",
     "C:\\Users\\Charles\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\3.1.8\\microsoft.aspnetcore.authentication.jwtbearer.3.1.8.nupkg.sha512",
     "C:\\Users\\Charles\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\3.1.8\\microsoft.aspnetcore.cryptography.internal.3.1.8.nupkg.sha512",
     "C:\\Users\\Charles\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\3.1.8\\microsoft.aspnetcore.cryptography.keyderivation.3.1.8.nupkg.sha512",

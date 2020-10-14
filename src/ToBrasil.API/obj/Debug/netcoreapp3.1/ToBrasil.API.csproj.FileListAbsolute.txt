@@ -62,9 +62,6 @@ D:\Visual Studio\ToBrasil\src\ToBrasil.API\bin\Debug\netcoreapp3.1\ToBrasil.Infr
 D:\Visual Studio\ToBrasil\src\ToBrasil.API\obj\Debug\netcoreapp3.1\ToBrasil.API.csprojAssemblyReference.cache
 D:\Visual Studio\ToBrasil\src\ToBrasil.API\obj\Debug\netcoreapp3.1\ToBrasil.API.AssemblyInfoInputs.cache
 D:\Visual Studio\ToBrasil\src\ToBrasil.API\obj\Debug\netcoreapp3.1\ToBrasil.API.AssemblyInfo.cs
-D:\Visual Studio\ToBrasil\src\ToBrasil.API\obj\Debug\netcoreapp3.1\ToBrasil.API.csproj.CoreCompileInputs.cache
-D:\Visual Studio\ToBrasil\src\ToBrasil.API\obj\Debug\netcoreapp3.1\ToBrasil.API.MvcApplicationPartsAssemblyInfo.cs
-D:\Visual Studio\ToBrasil\src\ToBrasil.API\obj\Debug\netcoreapp3.1\ToBrasil.API.MvcApplicationPartsAssemblyInfo.cache
 D:\Visual Studio\ToBrasil\src\ToBrasil.API\obj\Debug\netcoreapp3.1\ToBrasil.API.RazorTargetAssemblyInfo.cache
 D:\Visual Studio\ToBrasil\src\ToBrasil.API\obj\Debug\netcoreapp3.1\ToBrasil.API.csproj.CopyComplete
 D:\Visual Studio\ToBrasil\src\ToBrasil.API\obj\Debug\netcoreapp3.1\staticwebassets\ToBrasil.API.StaticWebAssets.Manifest.cache
@@ -74,3 +71,8 @@ D:\Visual Studio\ToBrasil\src\ToBrasil.API\obj\Debug\netcoreapp3.1\ToBrasil.API.
 D:\Visual Studio\ToBrasil\src\ToBrasil.API\obj\Debug\netcoreapp3.1\ToBrasil.API.genruntimeconfig.cache
 D:\Visual Studio\ToBrasil\src\ToBrasil.API\bin\Debug\netcoreapp3.1\ToBrasil.Infrastructure.Identity.dll
 D:\Visual Studio\ToBrasil\src\ToBrasil.API\bin\Debug\netcoreapp3.1\ToBrasil.Infrastructure.Identity.pdb
+D:\Visual Studio\ToBrasil\src\ToBrasil.API\bin\Debug\netcoreapp3.1\MediatR.dll
+D:\Visual Studio\ToBrasil\src\ToBrasil.API\bin\Debug\netcoreapp3.1\MediatR.Extensions.Microsoft.DependencyInjection.dll
+D:\Visual Studio\ToBrasil\src\ToBrasil.API\obj\Debug\netcoreapp3.1\ToBrasil.API.csproj.CoreCompileInputs.cache
+D:\Visual Studio\ToBrasil\src\ToBrasil.API\obj\Debug\netcoreapp3.1\ToBrasil.API.MvcApplicationPartsAssemblyInfo.cs
+D:\Visual Studio\ToBrasil\src\ToBrasil.API\obj\Debug\netcoreapp3.1\ToBrasil.API.MvcApplicationPartsAssemblyInfo.cache

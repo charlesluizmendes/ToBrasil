@@ -12,17 +12,17 @@ namespace ToBrasil.Application.AutoMapper
     {
         public Mapping()
         {
-            CreateMap<CadastroDTO, User>()
+            CreateMap<CadastroInputDTO, User>()
                 .ForMember(entity => entity.PasswordHash, opt => opt.MapFrom(dto => HasherExtension.HashPassword(dto.Password)));
-            CreateMap<User, CadastroDTO>()
+            CreateMap<User, CadastroInputDTO>()
                 .ForMember(dto => dto.Password, opt => opt.MapFrom(entity => entity.PasswordHash));
 
             CreateMap<PhoneDTO, Phone>();
             CreateMap<Phone, PhoneDTO>();
-
-            CreateMap<LoginDTO, User>()
-                .ForMember(entity => entity.PasswordHash, opt => opt.MapFrom(dto => HasherExtension.HashPassword(dto.Password)));
-            CreateMap<User, LoginDTO>()
+                       
+            CreateMap<LoginInputDTO, User>()
+                .ForMember(entity => entity.PasswordHash, opt => opt.MapFrom(dto => dto.Password));
+            CreateMap<User, LoginInputDTO>()
                 .ForMember(dto => dto.Password, opt => opt.MapFrom(entity => entity.PasswordHash));
         }
     }

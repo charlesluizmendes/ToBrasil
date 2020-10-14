@@ -1,14 +1,16 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using MediatR;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
+using System.Reflection;
 using System.Text;
-using ToBrasil.Application.Interfaces;
-using ToBrasil.Application.Services;
+using ToBrasil.Application.Services.Command;
+using ToBrasil.Application.Services.Query;
+using ToBrasil.Domain.Entities;
 using ToBrasil.Domain.Interfaces.Repository;
 using ToBrasil.Domain.Interfaces.Services;
-using ToBrasil.Domain.Services;
 using ToBrasil.Infrastructure.Data.Repository;
-using ToBrasil.Infrastructure.Identity.Service;
+using ToBrasil.Infrastructure.Identity.Services;
 
 namespace ToBrasil.Infrastructure.IoC
 {
@@ -16,27 +18,23 @@ namespace ToBrasil.Infrastructure.IoC
     {
         public static void Register(IServiceCollection container)
         {
-            // Application
+            // Command and Query
 
-            container.AddScoped(typeof(IBaseAppService<>), typeof(BaseAppService<>));
-            container.AddScoped<IUserAppService, UserAppService>();
-            container.AddScoped<IPhoneAppService, PhoneAppService>();
+            container.AddMediatR(Assembly.GetExecutingAssembly());
+            container.AddTransient<IRequestHandler<CreateUserCommand, User>, CreateUserCommandHandler>();
+            container.AddTransient<IRequestHandler<GetTokenByEmailQuery, string>, GetTokenByEmailQueryHandler>();
+            container.AddTransient<IRequestHandler<GetUserByEmailQuery, User>, GetUserByEmailQueryHandler>();
+            container.AddTransient<IRequestHandler<GetUserByLoginQuery, User>, GetUserByLoginQueryHandler>();
 
-            // Domain
+            // Services
 
-            container.AddScoped(typeof(IBaseService<>), typeof(BaseService<>));
-            container.AddScoped<IUserService, UserService>();
-            container.AddScoped<IPhoneService, PhoneService>();
+            container.AddScoped<ITokenService, TokenService>();
 
-            // Data
+            // Repository
 
             container.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
             container.AddScoped<IUserRepository, UserRepository>();
             container.AddScoped<IPhoneRepository, PhoneRepository>();
-
-            // Identity
-
-            container.AddScoped<ITokenService, TokenService>();
         }
     }
 }

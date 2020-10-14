@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using ToBrasil.Domain.Interfaces.Repository;
 using ToBrasil.Infrastructure.Data.Context;
 
@@ -17,11 +18,11 @@ namespace ToBrasil.Infrastructure.Data.Repository
             _context = context;
         }
 
-        public IEnumerable<T> GetAll()
+        public async Task<IEnumerable<T>> GetAllAsync()
         {
             try
             {
-                return _context.Set<T>().ToList();
+                return await _context.Set<T>().ToListAsync();
             }
             catch (Exception ex)
             {
@@ -29,11 +30,11 @@ namespace ToBrasil.Infrastructure.Data.Repository
             }
         }
 
-        public T GetById(object id)
+        public async Task<T> GetByIdAsync(object id)
         {
             try
             {
-                return _context.Set<T>().Find(id);
+                return await _context.Set<T>().FindAsync(id);
             }
             catch (Exception ex)
             {
@@ -41,11 +42,14 @@ namespace ToBrasil.Infrastructure.Data.Repository
             }
         }
 
-        public void Insert(T entidade)
+        public async Task<T> InsertAsync(T entity)
         {
             try
             {
-                _context.Set<T>().Add(entidade);
+                await _context.Set<T>().AddAsync(entity);
+                await _context.SaveChangesAsync();
+
+                return entity;
             }
             catch (Exception ex)
             {
@@ -53,11 +57,14 @@ namespace ToBrasil.Infrastructure.Data.Repository
             }
         }
 
-        public void Update(T entidade)
+        public async Task<T> UpdateAsync(T entity)
         {
             try
             {
-                _context.Entry(entidade).State = EntityState.Modified;
+                _context.Update(entity);
+                await _context.SaveChangesAsync();
+
+                return entity;
             }
             catch (Exception ex)
             {
@@ -65,21 +72,19 @@ namespace ToBrasil.Infrastructure.Data.Repository
             }
         }        
 
-        public void Delete(T entidade)
+        public async Task<T> DeleteAsync(T entity)
         {
             try
             {
-                _context.Set<T>().Remove(entidade);
+                _context.Set<T>().Remove(entity);
+                await _context.SaveChangesAsync();
+
+                return entity;
             }
             catch (Exception ex)
             {
                 throw ex;
             }
-        }
-
-        public int Commit()
-        {
-            return _context.SaveChanges();
         }
 
         #region

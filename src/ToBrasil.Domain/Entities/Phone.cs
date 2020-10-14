@@ -9,7 +9,6 @@ namespace ToBrasil.Domain.Entities
     public class Phone
     {
         [Key]
-        [Required]
         public virtual Guid Id { get; set; }
 
         [Required]

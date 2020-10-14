@@ -5,7 +5,7 @@ using System.Text;
 
 namespace ToBrasil.Application.DTO
 {
-    public class CadastroDTO
+    public class CadastroInputDTO
     {
         [Required(ErrorMessage = "O Nome não pode ser nulo")]
         [MaxLength(255, ErrorMessage = "O Nome não pode ter mais de 255 caracteres")]
