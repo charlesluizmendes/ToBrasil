@@ -8,6 +8,6 @@ namespace ToBrasil.Domain.Interfaces.Repository
 {
     public interface IUserRepository : IBaseRepository<User>
     {
-        Task<User> GetUserByEmailAsync(string email);
+        Task<User> GetUserByEmailAsync(User user);
     }
 }

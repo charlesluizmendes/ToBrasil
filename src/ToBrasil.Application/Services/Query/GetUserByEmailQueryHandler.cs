@@ -20,7 +20,7 @@ namespace ToBrasil.Application.Services.Query
 
         public Task<User> Handle(GetUserByEmailQuery request, CancellationToken cancellationToken)
         {
-            return _userRepository.GetUserByEmailAsync(request.Email);
+            return _userRepository.GetUserByEmailAsync(request.User);
         }
     }
 }

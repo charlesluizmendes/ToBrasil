@@ -21,10 +21,10 @@ namespace ToBrasil.Infrastructure.Data.Repository
             _context = context;
         }
 
-        public async Task<User> GetUserByEmailAsync(string email)
+        public async Task<User> GetUserByEmailAsync(User user)
         {
             var result = await _context.Users
-                .Where(u => u.Email == email)
+                .Where(u => u.Email == user.Email)
                 .Select(u => new User
                 {
                     Id = u.Id,

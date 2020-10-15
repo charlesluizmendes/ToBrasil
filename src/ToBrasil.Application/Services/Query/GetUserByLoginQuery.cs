@@ -8,8 +8,7 @@ namespace ToBrasil.Application.Services.Query
 {
     public class GetUserByLoginQuery : IRequest<User>
     {
-        public string Email { get; set; }
+        public User User { get; set; }
 
-        public string PasswordHash { get; set; }        
     }
 }

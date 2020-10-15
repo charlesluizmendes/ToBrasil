@@ -8,6 +8,6 @@ namespace ToBrasil.Application.Services.Query
 {
     public class GetUserByEmailQuery : IRequest<User>
     {
-        public string Email { get; set; }
+        public User User { get; set; }
     }
 }

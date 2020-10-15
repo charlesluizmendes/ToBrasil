@@ -75,3 +75,4 @@ D:\Visual Studio\ToBrasil\src\ToBrasil.API\obj\Debug\netcoreapp3.1\staticwebasse
 D:\Visual Studio\ToBrasil\src\ToBrasil.API\obj\Debug\netcoreapp3.1\ToBrasil.API.dll
 D:\Visual Studio\ToBrasil\src\ToBrasil.API\obj\Debug\netcoreapp3.1\ToBrasil.API.pdb
 D:\Visual Studio\ToBrasil\src\ToBrasil.API\obj\Debug\netcoreapp3.1\ToBrasil.API.genruntimeconfig.cache
+D:\Visual Studio\ToBrasil\src\ToBrasil.API\obj\Debug\netcoreapp3.1\ToBrasil.API.csprojAssemblyReference.cache
