@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -36,11 +37,21 @@ namespace ToBrasil.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // MediatR
+
             services.AddMediatR(typeof(Startup));
+
+            // Factory
+
+            services.AddTransient<IDbConnection>(db =>
+                new SqlConnection(Configuration.GetConnectionString("DefaultConnection"))
+            );
 
             // Context
 
-            services.AddDbContext<ToBrasilContext>(options => options.UseInMemoryDatabase(databaseName: "ToBrasil"));
+            services.AddDbContext<ToBrasilContext>(option =>
+                 option.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"))
+            );
 
             // IoC
 

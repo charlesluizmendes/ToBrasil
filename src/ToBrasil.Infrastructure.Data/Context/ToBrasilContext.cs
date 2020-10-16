@@ -8,19 +8,24 @@ using ToBrasil.Domain.Entities;
 
 namespace ToBrasil.Infrastructure.Data.Context
 {
-    public class ToBrasilContext : IdentityDbContext<User, IdentityRole<Guid>, Guid>
+    public class ToBrasilContext : IdentityDbContext<Users, IdentityRole<Guid>, Guid>
     {
         public ToBrasilContext(DbContextOptions<ToBrasilContext> options)
             : base(options)
         {
         }
 
-        public virtual DbSet<User> User { get; set; }
+        public virtual DbSet<Users> Users { get; set; }
         public virtual DbSet<Phone> Phone { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            base.OnModelCreating(builder);            
+            base.OnModelCreating(builder);
+
+            builder.Entity<Users>()
+            .ToTable("Users")
+            .Property(p => p.Id)
+            .HasColumnName("Id");
         }
     }
 }

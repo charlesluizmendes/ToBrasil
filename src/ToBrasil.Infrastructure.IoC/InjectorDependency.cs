@@ -9,6 +9,7 @@ using ToBrasil.Application.Services.Query;
 using ToBrasil.Domain.Entities;
 using ToBrasil.Domain.Interfaces.Repository;
 using ToBrasil.Domain.Interfaces.Services;
+using ToBrasil.Infrastructure.Data.Factory;
 using ToBrasil.Infrastructure.Data.Repository;
 using ToBrasil.Infrastructure.Identity.Services;
 
@@ -18,12 +19,17 @@ namespace ToBrasil.Infrastructure.IoC
     {
         public static void Register(IServiceCollection container)
         {
+            // Factory
+
+            container.AddSingleton<ToBrabilFactory>();
+
             // Command and Query
 
             container.AddMediatR(Assembly.GetExecutingAssembly());           
-            container.AddTransient<IRequestHandler<CreateUserCommand, User>, CreateUserCommandHandler>();
-            container.AddTransient<IRequestHandler<GetUserByEmailQuery, User>, GetUserByEmailQueryHandler>();
-            container.AddTransient<IRequestHandler<GetUserByLoginQuery, User>, GetUserByLoginQueryHandler>();
+            container.AddTransient<IRequestHandler<CreateUserCommand, Users>, CreateUserCommandHandler>();
+            container.AddTransient<IRequestHandler<GetUserByEmailQuery, Users>, GetUserByEmailQueryHandler>();
+            container.AddTransient<IRequestHandler<GetUserByLoginQuery, Users>, GetUserByLoginQueryHandler>();
+            container.AddTransient<IRequestHandler<GetTokenByEmailQuery, string []>, GetTokenByEmailQueryHandler>();
 
             // Services
 

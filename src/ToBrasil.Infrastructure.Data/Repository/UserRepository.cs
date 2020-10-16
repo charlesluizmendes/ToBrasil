@@ -1,46 +1,105 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Dapper;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Internal;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ToBrasil.Domain.Entities;
 using ToBrasil.Domain.Interfaces.Repository;
 using ToBrasil.Infrastructure.Data.Context;
+using ToBrasil.Infrastructure.Data.Factory;
 
 namespace ToBrasil.Infrastructure.Data.Repository
 {
-    public class UserRepository : BaseRepository<User>, IUserRepository
+    public class UserRepository : BaseRepository<Users>, IUserRepository
     {
+        private readonly ToBrabilFactory _factory;
         private readonly ToBrasilContext _context;
 
-        public UserRepository(ToBrasilContext context)
-            : base(context)
+        public UserRepository(ToBrabilFactory factory,
+            ToBrasilContext context)
+            : base(factory, context)
         {
+            _factory = factory;
             _context = context;
         }
 
-        public async Task<User> GetUserByEmailAsync(User user)
+        public override async Task<IEnumerable<Users>> GetAllAsync()
         {
-            var result = await _context.Users
-                .Where(u => u.Email == user.Email)
-                .Select(u => new User
-                {
-                    Id = u.Id,
-                    UserName = u.UserName,
-                    Email = u.Email,
-                    PasswordHash = u.PasswordHash,
-                    Phones = u.Phones.Where(p => p.UserId == u.Id).ToList(),
-                    Created = u.Created,
-                    Modified = u.Modified,
-                    LastLogin = u.LastLogin,
-                    Token = u.Token,
-                    ConcurrencyStamp = u.ConcurrencyStamp
-                })
-                .FirstOrDefaultAsync();
+            try
+            {
+                var result = await _factory.GetConnection()
+                    .QueryAsync<Users, Phone, Users>($"" +
+                    $"Select * From Users " +
+                    $"Inner Join Phone on Users.Id = Phone.UserId " +
+                    $"", map: (users, phone) =>
+                    {
+                        users.Phones = new List<Phone>();
+                        users.Phones.Add(phone);
 
-            return result;
+                        return users;
+                    });
+
+                return result.ToList();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public override async Task<Users> GetByIdAsync(object id)
+        {
+            try
+            {
+                var result = await _factory.GetConnection()
+                    .QueryAsync<Users, Phone, Users>($"" +
+                    $"Select * From Users " +
+                    $"Inner Join Phone on Users.Id = Phone.UserId " +
+                    $"Where Users.Id = '{ id }'" +
+                    $"", map: (users, phone) =>
+                    {
+                        users.Phones = new List<Phone>();
+                        users.Phones.Add(phone);
+
+                        return users;
+                    });
+
+                return result.FirstOrDefault();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public async Task<Users> GetUserByEmailAsync(Users user)
+        {
+            try
+            {
+                var result = await _factory.GetConnection()
+                    .QueryAsync<Users, Phone, Users>($"" +
+                    $"Select * From Users " +
+                    $"Inner Join Phone on Users.Id = Phone.UserId " +
+                    $"Where Users.Email = '{ user.Email }'" +
+                    $"", map: (users, phone) =>
+                    {
+                        users.Phones = new List<Phone>();
+                        users.Phones.Add(phone);
+
+                        return users;
+                    });
+
+                return result.FirstOrDefault();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }

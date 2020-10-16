@@ -1,28 +1,35 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ToBrasil.Domain.Interfaces.Repository;
 using ToBrasil.Infrastructure.Data.Context;
+using Dapper;
+using System.Data;
+using ToBrasil.Infrastructure.Data.Factory;
 
 namespace ToBrasil.Infrastructure.Data.Repository
 {
     public class BaseRepository<T> : IBaseRepository<T> where T : class
     {
+        private readonly ToBrabilFactory _factory;
         private readonly ToBrasilContext _context;
 
-        public BaseRepository(ToBrasilContext context)
+        public BaseRepository(ToBrabilFactory factory,
+            ToBrasilContext context)
         {
+            _factory = factory;
             _context = context;
         }
 
-        public async Task<IEnumerable<T>> GetAllAsync()
+        public virtual async Task<IEnumerable<T>> GetAllAsync()
         {
             try
             {
-                return await _context.Set<T>().ToListAsync();
+                var result = await _factory.GetConnection().QueryAsync<T>($"Select * From { typeof(T).Name }");
+
+                return result.ToList();
             }
             catch (Exception ex)
             {
@@ -30,11 +37,13 @@ namespace ToBrasil.Infrastructure.Data.Repository
             }
         }
 
-        public async Task<T> GetByIdAsync(object id)
+        public virtual async Task<T> GetByIdAsync(object id)
         {
             try
             {
-                return await _context.Set<T>().FindAsync(id);
+                var result = await _factory.GetConnection().QueryAsync<T>($"Select * From { typeof(T).Name } Where Id = { id }");
+
+                return result.FirstOrDefault();
             }
             catch (Exception ex)
             {
@@ -42,7 +51,7 @@ namespace ToBrasil.Infrastructure.Data.Repository
             }
         }
 
-        public async Task<T> InsertAsync(T entity)
+        public virtual async Task<T> InsertAsync(T entity)
         {
             try
             {
@@ -57,7 +66,7 @@ namespace ToBrasil.Infrastructure.Data.Repository
             }
         }
 
-        public async Task<T> UpdateAsync(T entity)
+        public virtual async Task<T> UpdateAsync(T entity)
         {
             try
             {
@@ -72,7 +81,7 @@ namespace ToBrasil.Infrastructure.Data.Repository
             }
         }        
 
-        public async Task<T> DeleteAsync(T entity)
+        public virtual async Task<T> DeleteAsync(T entity)
         {
             try
             {

@@ -6,8 +6,8 @@ using ToBrasil.Domain.Entities;
 
 namespace ToBrasil.Domain.Interfaces.Repository
 {
-    public interface IUserRepository : IBaseRepository<User>
+    public interface IUserRepository : IBaseRepository<Users>
     {
-        Task<User> GetUserByEmailAsync(User user);
+        Task<Users> GetUserByEmailAsync(Users user);
     }
 }

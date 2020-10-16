@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using ToBrasil.Application.DTO;
 using ToBrasil.Application.Extensions;
@@ -12,27 +13,26 @@ namespace ToBrasil.Application.AutoMapper
     {
         public Mapping()
         {
-            CreateMap<CadastroInputDTO, User>()
+            CreateMap<CadastroInputDTO, Users>()
                 .ForMember(entity => entity.UserName, opt => opt.MapFrom(dto => dto.Name))
-                .ForMember(entity => entity.PasswordHash, opt => opt.MapFrom(dto => HasherExtension.HashPassword(dto.Password)))
-                .ForMember(entity => entity.Created, opt => opt.MapFrom(dto => DateTime.Now))
-                .ForMember(entity => entity.Modified, opt => opt.MapFrom(dto => DateTime.Now));
-            CreateMap<User, CadastroInputDTO>();                      
-
-            CreateMap<CadastroOutputDTO, User>();
-            CreateMap<User, CadastroOutputDTO>()
-                .ForMember(dto => dto.Name, opt => opt.MapFrom(entity => entity.UserName));
-
-            CreateMap<LoginInputDTO, User>()
+                .ForMember(entity => entity.PasswordHash, opt => opt.MapFrom(dto => dto.Password));                
+            CreateMap<Users, CadastroInputDTO>();       
+     
+            CreateMap<LoginInputDTO, Users>()
                 .ForMember(entity => entity.PasswordHash, opt => opt.MapFrom(dto => dto.Password));
-            CreateMap<User, LoginInputDTO>();
+            CreateMap<Users, LoginInputDTO>();
 
-            CreateMap<LoginOutputDTO, User>();
-            CreateMap<User, LoginOutputDTO>()
-                .ForMember(dto => dto.Name, opt => opt.MapFrom(entity => entity.UserName));
+            CreateMap<UserDTO, Users>();
+            CreateMap<Users, UserDTO>()
+                 .ForMember(dto => dto.Name, opt => opt.MapFrom(entity => entity.UserName));
 
             CreateMap<PhoneDTO, Phone>();
             CreateMap<Phone, PhoneDTO>();
+
+            CreateMap<TokenDTO, string[]>();              
+            CreateMap<string[], TokenDTO>()
+                .ForMember(dto => dto.Token, opt => opt.MapFrom(entity => entity[0]))
+                .ForMember(dto => dto.Valid, opt => opt.MapFrom(entity => entity[1]));
         }
     }
 }

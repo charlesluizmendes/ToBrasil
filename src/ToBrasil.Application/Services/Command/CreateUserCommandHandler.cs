@@ -4,33 +4,28 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using ToBrasil.Application.Extensions;
 using ToBrasil.Domain.Entities;
 using ToBrasil.Domain.Interfaces.Repository;
 
 namespace ToBrasil.Application.Services.Command
 {
-    public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, User>
+    public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, Users>
     {
         private readonly IUserRepository _userRepository;
-        private readonly IPhoneRepository _phoneRepository;
 
-        public CreateUserCommandHandler(IUserRepository userRepository,
-            IPhoneRepository phoneRepository)
+        public CreateUserCommandHandler(IUserRepository userRepository)
         {
             _userRepository = userRepository;
-            _phoneRepository = phoneRepository;
         }
 
-        public Task<User> Handle(CreateUserCommand request, CancellationToken cancellationToken)
+        public async Task<Users> Handle(CreateUserCommand request, CancellationToken cancellationToken)
         {
-            var user = _userRepository.InsertAsync(request.User);
+            request.User.Created = DateTime.Now;
+            request.User.Modified = DateTime.Now;
+            request.User.PasswordHash = HasherExtension.HashPassword(request.User.PasswordHash);
 
-            foreach (var item in user.Result.Phones)
-            {
-                _phoneRepository.InsertAsync(item);
-            };
-
-            return user;
+            return await _userRepository.InsertAsync(request.User);
         }
     }
 }

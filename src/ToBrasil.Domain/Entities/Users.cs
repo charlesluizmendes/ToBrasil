@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Identity;
 
 namespace ToBrasil.Domain.Entities
 {
-    public class User : IdentityUser<Guid>
+    public class Users : IdentityUser<Guid>
     {
         public virtual ICollection<Phone> Phones { get; set; }
 
@@ -14,7 +14,5 @@ namespace ToBrasil.Domain.Entities
         public virtual DateTime Modified { get; set; }
 
         public virtual DateTime? LastLogin { get; set; }
-
-        public virtual string Token { get; set; }
     }
 }

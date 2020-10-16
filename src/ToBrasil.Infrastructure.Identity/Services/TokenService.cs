@@ -20,7 +20,7 @@ namespace ToBrasil.Infrastructure.Identity.Services
             _configuration = configuration;
         }
 
-        public async Task<string> CreateJwtToken(User user)
+        public async Task<string[]> CreateJwtToken(Users user)
         {
             var claims = new[]
                 {
@@ -44,8 +44,9 @@ namespace ToBrasil.Infrastructure.Identity.Services
                 );
 
             var token = new JwtSecurityTokenHandler().WriteToken(jwt);
+            var valid = jwt.ValidTo.ToString();
 
-            return await Task.FromResult<string>(token);
+            return await Task.FromResult(new string[] { token, valid });
         }
     }
 }

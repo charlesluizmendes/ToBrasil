@@ -8,6 +8,6 @@ namespace ToBrasil.Domain.Interfaces.Services
 {
     public interface ITokenService
     {
-        Task<string> CreateJwtToken(User user);
+        Task<string []> CreateJwtToken(Users user);
     }
 }

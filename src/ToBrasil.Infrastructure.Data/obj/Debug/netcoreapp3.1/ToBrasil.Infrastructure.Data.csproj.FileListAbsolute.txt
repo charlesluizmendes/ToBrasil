@@ -6,7 +6,10 @@ D:\Visual Studio\ToBrasil\src\ToBrasil.Infrastructure.Data\bin\Debug\netcoreapp3
 D:\Visual Studio\ToBrasil\src\ToBrasil.Infrastructure.Data\obj\Debug\netcoreapp3.1\ToBrasil.Infrastructure.Data.csprojAssemblyReference.cache
 D:\Visual Studio\ToBrasil\src\ToBrasil.Infrastructure.Data\obj\Debug\netcoreapp3.1\ToBrasil.Infrastructure.Data.AssemblyInfoInputs.cache
 D:\Visual Studio\ToBrasil\src\ToBrasil.Infrastructure.Data\obj\Debug\netcoreapp3.1\ToBrasil.Infrastructure.Data.AssemblyInfo.cs
-D:\Visual Studio\ToBrasil\src\ToBrasil.Infrastructure.Data\obj\Debug\netcoreapp3.1\ToBrasil.Infrastructure.Data.csproj.CoreCompileInputs.cache
 D:\Visual Studio\ToBrasil\src\ToBrasil.Infrastructure.Data\obj\Debug\netcoreapp3.1\ToBrasil.Infrastructure.Data.csproj.CopyComplete
 D:\Visual Studio\ToBrasil\src\ToBrasil.Infrastructure.Data\obj\Debug\netcoreapp3.1\ToBrasil.Infrastructure.Data.dll
 D:\Visual Studio\ToBrasil\src\ToBrasil.Infrastructure.Data\obj\Debug\netcoreapp3.1\ToBrasil.Infrastructure.Data.pdb
+D:\Visual Studio\ToBrasil\src\ToBrasil.Infrastructure.Data\bin\Debug\netcoreapp3.1\ToBrasil.Infrastructure.Data.runtimeconfig.json
+D:\Visual Studio\ToBrasil\src\ToBrasil.Infrastructure.Data\bin\Debug\netcoreapp3.1\ToBrasil.Infrastructure.Data.runtimeconfig.dev.json
+D:\Visual Studio\ToBrasil\src\ToBrasil.Infrastructure.Data\obj\Debug\netcoreapp3.1\ToBrasil.Infrastructure.Data.genruntimeconfig.cache
+D:\Visual Studio\ToBrasil\src\ToBrasil.Infrastructure.Data\obj\Debug\netcoreapp3.1\ToBrasil.Infrastructure.Data.csproj.CoreCompileInputs.cache

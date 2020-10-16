@@ -6,9 +6,9 @@ using ToBrasil.Domain.Entities;
 
 namespace ToBrasil.Application.Services.Query
 {
-    public class GetUserByLoginQuery : IRequest<User>
+    public class GetUserByLoginQuery : IRequest<Users>
     {
-        public User User { get; set; }
+        public Users User { get; set; }
 
     }
 }

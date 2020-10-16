@@ -19,6 +19,6 @@ namespace ToBrasil.Domain.Entities
 
         [ForeignKey("User")]
         public virtual Guid UserId { get; set; }
-        public virtual User User { get; set; }
+        public virtual Users User { get; set; }
     }
 }

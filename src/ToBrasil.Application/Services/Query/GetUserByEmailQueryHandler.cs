@@ -9,7 +9,7 @@ using ToBrasil.Domain.Interfaces.Repository;
 
 namespace ToBrasil.Application.Services.Query
 {
-    public class GetUserByEmailQueryHandler : IRequestHandler<GetUserByEmailQuery, User>
+    public class GetUserByEmailQueryHandler : IRequestHandler<GetUserByEmailQuery, Users>
     {
         private readonly IUserRepository _userRepository;
 
@@ -18,9 +18,11 @@ namespace ToBrasil.Application.Services.Query
             _userRepository = userRepository;
         }
 
-        public Task<User> Handle(GetUserByEmailQuery request, CancellationToken cancellationToken)
+        public async Task<Users> Handle(GetUserByEmailQuery request, CancellationToken cancellationToken)
         {
-            return _userRepository.GetUserByEmailAsync(request.User);
+            var teste = await _userRepository.GetAllAsync();
+
+            return await _userRepository.GetUserByEmailAsync(request.User);
         }
     }
 }

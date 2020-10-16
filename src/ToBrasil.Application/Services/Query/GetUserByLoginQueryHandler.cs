@@ -11,40 +11,34 @@ using ToBrasil.Domain.Interfaces.Services;
 
 namespace ToBrasil.Application.Services.Query
 {
-    public class GetUserByLoginQueryHandler : IRequestHandler<GetUserByLoginQuery, User>
+    public class GetUserByLoginQueryHandler : IRequestHandler<GetUserByLoginQuery, Users>
     {
         private readonly IUserRepository _userRepository;
-        private readonly ITokenService _tokenService;
 
-        public GetUserByLoginQueryHandler(IUserRepository userRepository,
-            ITokenService tokenService)
+        public GetUserByLoginQueryHandler(IUserRepository userRepository)
         {
             _userRepository = userRepository;
-            _tokenService = tokenService;
         }
 
-        public Task<User> Handle(GetUserByLoginQuery request, CancellationToken cancellationToken)
+        public async Task<Users> Handle(GetUserByLoginQuery request, CancellationToken cancellationToken)
         {
-            var user = _userRepository.GetUserByEmailAsync(request.User);
+            var user = await _userRepository.GetUserByEmailAsync(request.User);
 
             if (user == null)
             {
                 return null;
             }
 
-            var hash = HasherExtension.VerifyHashedPassword(user.Result.PasswordHash, request.User.PasswordHash);
+            var hash = HasherExtension.VerifyHashedPassword(user.PasswordHash, request.User.PasswordHash);
 
             if (!hash)
             {
                 return null;
             }
 
-            var token = _tokenService.CreateJwtToken(user.Result);
+            user.LastLogin = DateTime.Now;
 
-            user.Result.LastLogin = DateTime.Now;
-            user.Result.Token = token.Result;
-
-            return _userRepository.UpdateAsync(user.Result);
+            return await _userRepository.UpdateAsync(user);
         }
     }
 }

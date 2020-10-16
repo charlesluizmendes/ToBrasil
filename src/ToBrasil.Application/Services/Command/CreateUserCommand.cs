@@ -6,8 +6,8 @@ using ToBrasil.Domain.Entities;
 
 namespace ToBrasil.Application.Services.Command
 {
-    public class CreateUserCommand : IRequest<User>
+    public class CreateUserCommand : IRequest<Users>
     {
-        public User User { get; set; }
+        public Users User { get; set; }
     }
 }
