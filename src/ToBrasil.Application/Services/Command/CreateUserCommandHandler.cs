@@ -4,28 +4,23 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using ToBrasil.Application.Extensions;
 using ToBrasil.Domain.Entities;
-using ToBrasil.Domain.Interfaces.Repository;
+using ToBrasil.Domain.Interfaces.Services;
 
 namespace ToBrasil.Application.Services.Command
 {
     public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, Users>
     {
-        private readonly IUserRepository _userRepository;
+        private readonly IUserService _userService;
 
-        public CreateUserCommandHandler(IUserRepository userRepository)
+        public CreateUserCommandHandler(IUserService userService)
         {
-            _userRepository = userRepository;
+            _userService = userService;
         }
 
         public async Task<Users> Handle(CreateUserCommand request, CancellationToken cancellationToken)
         {
-            request.User.Created = DateTime.Now;
-            request.User.Modified = DateTime.Now;
-            request.User.PasswordHash = HasherExtension.HashPassword(request.User.PasswordHash);
-
-            return await _userRepository.InsertAsync(request.User);
+            return await _userService.InsertAsync(request.User);
         }
     }
 }

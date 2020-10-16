@@ -5,24 +5,22 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using ToBrasil.Domain.Entities;
-using ToBrasil.Domain.Interfaces.Repository;
+using ToBrasil.Domain.Interfaces.Services;
 
 namespace ToBrasil.Application.Services.Query
 {
     public class GetUserByEmailQueryHandler : IRequestHandler<GetUserByEmailQuery, Users>
     {
-        private readonly IUserRepository _userRepository;
+        private readonly IUserService _userService;
 
-        public GetUserByEmailQueryHandler(IUserRepository userRepository)
+        public GetUserByEmailQueryHandler(IUserService userService)
         {
-            _userRepository = userRepository;
+            _userService = userService;
         }
 
         public async Task<Users> Handle(GetUserByEmailQuery request, CancellationToken cancellationToken)
         {
-            var teste = await _userRepository.GetAllAsync();
-
-            return await _userRepository.GetUserByEmailAsync(request.User);
+            return await _userService.GetUserByEmailAsync(request.User);
         }
     }
 }

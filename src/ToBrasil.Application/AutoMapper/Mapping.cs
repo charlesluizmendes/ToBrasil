@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using ToBrasil.Application.DTO;
-using ToBrasil.Application.Extensions;
 using ToBrasil.Domain.Entities;
 
 namespace ToBrasil.Application.AutoMapper

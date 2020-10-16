@@ -9,6 +9,7 @@ using ToBrasil.Application.Services.Query;
 using ToBrasil.Domain.Entities;
 using ToBrasil.Domain.Interfaces.Repository;
 using ToBrasil.Domain.Interfaces.Services;
+using ToBrasil.Domain.Services;
 using ToBrasil.Infrastructure.Data.Factory;
 using ToBrasil.Infrastructure.Data.Repository;
 using ToBrasil.Infrastructure.Identity.Services;
@@ -31,9 +32,12 @@ namespace ToBrasil.Infrastructure.IoC
             container.AddTransient<IRequestHandler<GetUserByLoginQuery, Users>, GetUserByLoginQueryHandler>();
             container.AddTransient<IRequestHandler<GetTokenByEmailQuery, string []>, GetTokenByEmailQueryHandler>();
 
-            // Services
+            // Service
 
+            container.AddScoped(typeof(IBaseService<>), typeof(BaseService<>));
+            container.AddScoped<IUserService, UserService>();
             container.AddScoped<ITokenService, TokenService>();
+            container.AddScoped<IPhoneService, PhoneService>();
 
             // Repository
 

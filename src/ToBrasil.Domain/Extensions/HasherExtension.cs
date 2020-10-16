@@ -4,7 +4,7 @@ using System.Text;
 using Microsoft.AspNetCore.Identity;
 using ToBrasil.Domain.Entities;
 
-namespace ToBrasil.Application.Extensions
+namespace ToBrasil.Domain.Extensions
 {
     public class HasherExtension
     {
