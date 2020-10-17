@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 using Microsoft.AspNetCore.Identity;
 
@@ -11,7 +12,7 @@ namespace ToBrasil.Domain.Entities
 
         public virtual DateTime Created { get; set; }
 
-        public virtual DateTime Modified { get; set; }
+        public virtual DateTime? Modified { get; set; }
 
         public virtual DateTime? LastLogin { get; set; }
     }

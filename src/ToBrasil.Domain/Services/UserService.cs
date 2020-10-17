@@ -21,8 +21,6 @@ namespace ToBrasil.Domain.Services
 
         public override async Task<Users> InsertAsync(Users user)
         {
-            user.Created = DateTime.Now;
-            user.Modified = DateTime.Now;
             user.PasswordHash = HasherExtension.HashPassword(user.PasswordHash);
 
             return await _userRepository.InsertAsync(user);

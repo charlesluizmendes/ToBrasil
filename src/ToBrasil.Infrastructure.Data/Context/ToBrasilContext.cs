@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -15,17 +17,20 @@ namespace ToBrasil.Infrastructure.Data.Context
         {
         }
 
-        public virtual DbSet<Users> Users { get; set; }
+        public virtual DbSet<Users> User { get; set; }
         public virtual DbSet<Phone> Phone { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
 
-            builder.Entity<Users>()
-            .ToTable("Users")
-            .Property(p => p.Id)
-            .HasColumnName("Id");
+            builder.Entity<Users>(e => 
+            {
+                e.ToTable("Users");
+                e.Property(d => d.Created).ValueGeneratedOnAdd().HasDefaultValueSql("GETDATE()");
+                e.Property(d => d.Modified).ValueGeneratedOnUpdate().HasComputedColumnSql("GETDATE()");
+                e.Property(d => d.Modified).Metadata.SetBeforeSaveBehavior(PropertySaveBehavior.Ignore);
+            });     
         }
     }
 }

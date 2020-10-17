@@ -24,7 +24,6 @@
     ".NETCoreApp,Version=v3.1": {
       "ToBrasil.API/1.0.0": {
         "dependencies": {
-          "Dapper": "2.0.35",
           "MediatR": "9.0.0",
           "MediatR.Extensions.Microsoft.DependencyInjection": "9.0.0",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "3.1.8",

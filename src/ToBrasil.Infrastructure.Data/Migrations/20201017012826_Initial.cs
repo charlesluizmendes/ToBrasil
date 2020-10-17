@@ -40,8 +40,8 @@ namespace ToBrasil.Infrastructure.Data.Migrations
                     LockoutEnd = table.Column<DateTimeOffset>(nullable: true),
                     LockoutEnabled = table.Column<bool>(nullable: false),
                     AccessFailedCount = table.Column<int>(nullable: false),
-                    Created = table.Column<DateTime>(nullable: false),
-                    Modified = table.Column<DateTime>(nullable: false),
+                    Created = table.Column<DateTime>(nullable: false, defaultValueSql: "GETDATE()"),
+                    Modified = table.Column<DateTime>(nullable: true, computedColumnSql: "GETDATE()"),
                     LastLogin = table.Column<DateTime>(nullable: true)
                 },
                 constraints: table =>
