@@ -1,12 +1,12 @@
 version: '3.4'
 
 services:
-  tobrasil.api:
-    container_name: ToBrasil.API
+  tobrasil.service.api:
+    container_name: ToBrasil.Service.API
     build:
       labels:
         com.microsoft.created-by: "visual-studio"
-        com.microsoft.visual-studio.project-name: "ToBrasil.API"
+        com.microsoft.visual-studio.project-name: "ToBrasil.Service.API"
     volumes:
       - C:\Users\Charles\vsdbg\vs2017u5:/remote_debugger:rw
       - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
@@ -15,8 +15,8 @@ services:
     entrypoint: tail -f /dev/null
     labels:
       com.microsoft.visualstudio.debuggee.program: "dotnet"
-      com.microsoft.visualstudio.debuggee.arguments: " --additionalProbingPath /root/.nuget/packages  \"\""
+      #com.microsoft.visualstudio.debuggee.arguments: " $debuggee_arguments_probing_paths_tobrasil.service.api$ \"/app/ToBrasil.Service.API.dll\""
       com.microsoft.visualstudio.debuggee.workingdirectory: "/app"
       com.microsoft.visualstudio.debuggee.killprogram: "/bin/sh -c \"if PID=$$(pidof dotnet); then kill $$PID; fi\""
-      com.microsoft.visual-studio.project-name: "ToBrasil.API"
+      com.microsoft.visual-studio.project-name: "ToBrasil.Service.API"
     tty: true

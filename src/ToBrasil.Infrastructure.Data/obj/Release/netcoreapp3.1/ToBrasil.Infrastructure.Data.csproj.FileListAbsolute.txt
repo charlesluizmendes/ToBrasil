@@ -1,0 +1,15 @@
+D:\Visual Studio\ToBrasil\src\ToBrasil.Infrastructure.Data\bin\Release\netcoreapp3.1\ToBrasil.Infrastructure.Data.deps.json
+D:\Visual Studio\ToBrasil\src\ToBrasil.Infrastructure.Data\bin\Release\netcoreapp3.1\ToBrasil.Infrastructure.Data.runtimeconfig.json
+D:\Visual Studio\ToBrasil\src\ToBrasil.Infrastructure.Data\bin\Release\netcoreapp3.1\ToBrasil.Infrastructure.Data.runtimeconfig.dev.json
+D:\Visual Studio\ToBrasil\src\ToBrasil.Infrastructure.Data\bin\Release\netcoreapp3.1\ToBrasil.Infrastructure.Data.dll
+D:\Visual Studio\ToBrasil\src\ToBrasil.Infrastructure.Data\bin\Release\netcoreapp3.1\ToBrasil.Infrastructure.Data.pdb
+D:\Visual Studio\ToBrasil\src\ToBrasil.Infrastructure.Data\bin\Release\netcoreapp3.1\ToBrasil.Domain.dll
+D:\Visual Studio\ToBrasil\src\ToBrasil.Infrastructure.Data\bin\Release\netcoreapp3.1\ToBrasil.Domain.pdb
+D:\Visual Studio\ToBrasil\src\ToBrasil.Infrastructure.Data\obj\Release\netcoreapp3.1\ToBrasil.Infrastructure.Data.csprojAssemblyReference.cache
+D:\Visual Studio\ToBrasil\src\ToBrasil.Infrastructure.Data\obj\Release\netcoreapp3.1\ToBrasil.Infrastructure.Data.AssemblyInfoInputs.cache
+D:\Visual Studio\ToBrasil\src\ToBrasil.Infrastructure.Data\obj\Release\netcoreapp3.1\ToBrasil.Infrastructure.Data.AssemblyInfo.cs
+D:\Visual Studio\ToBrasil\src\ToBrasil.Infrastructure.Data\obj\Release\netcoreapp3.1\ToBrasil.Infrastructure.Data.csproj.CoreCompileInputs.cache
+D:\Visual Studio\ToBrasil\src\ToBrasil.Infrastructure.Data\obj\Release\netcoreapp3.1\ToBrasil.Infrastructure.Data.csproj.CopyComplete
+D:\Visual Studio\ToBrasil\src\ToBrasil.Infrastructure.Data\obj\Release\netcoreapp3.1\ToBrasil.Infrastructure.Data.dll
+D:\Visual Studio\ToBrasil\src\ToBrasil.Infrastructure.Data\obj\Release\netcoreapp3.1\ToBrasil.Infrastructure.Data.pdb
+D:\Visual Studio\ToBrasil\src\ToBrasil.Infrastructure.Data\obj\Release\netcoreapp3.1\ToBrasil.Infrastructure.Data.genruntimeconfig.cache

@@ -1,12 +1,12 @@
 services:
-  tobrasil.api:
+  tobrasil.service.api:
     build:
       context: D:\Visual Studio\ToBrasil
-      dockerfile: src/ToBrasil.API/Dockerfile
+      dockerfile: src/ToBrasil.Service.API/Dockerfile
     environment:
       ASPNETCORE_ENVIRONMENT: Development
       ASPNETCORE_URLS: https://+:443;http://+:80
-    image: tobrasilapi
+    image: tobrasilserviceapi
     ports:
     - target: 80
     - target: 443

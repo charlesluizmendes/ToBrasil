@@ -1,0 +1,12 @@
+D:\Visual Studio\ToBrasil\src\ToBrasil.Infrastructure.Identity\bin\Release\netcoreapp3.1\ToBrasil.Infrastructure.Identity.deps.json
+D:\Visual Studio\ToBrasil\src\ToBrasil.Infrastructure.Identity\bin\Release\netcoreapp3.1\ToBrasil.Infrastructure.Identity.dll
+D:\Visual Studio\ToBrasil\src\ToBrasil.Infrastructure.Identity\bin\Release\netcoreapp3.1\ToBrasil.Infrastructure.Identity.pdb
+D:\Visual Studio\ToBrasil\src\ToBrasil.Infrastructure.Identity\bin\Release\netcoreapp3.1\ToBrasil.Domain.dll
+D:\Visual Studio\ToBrasil\src\ToBrasil.Infrastructure.Identity\bin\Release\netcoreapp3.1\ToBrasil.Domain.pdb
+D:\Visual Studio\ToBrasil\src\ToBrasil.Infrastructure.Identity\obj\Release\netcoreapp3.1\ToBrasil.Infrastructure.Identity.csprojAssemblyReference.cache
+D:\Visual Studio\ToBrasil\src\ToBrasil.Infrastructure.Identity\obj\Release\netcoreapp3.1\ToBrasil.Infrastructure.Identity.AssemblyInfoInputs.cache
+D:\Visual Studio\ToBrasil\src\ToBrasil.Infrastructure.Identity\obj\Release\netcoreapp3.1\ToBrasil.Infrastructure.Identity.AssemblyInfo.cs
+D:\Visual Studio\ToBrasil\src\ToBrasil.Infrastructure.Identity\obj\Release\netcoreapp3.1\ToBrasil.Infrastructure.Identity.csproj.CoreCompileInputs.cache
+D:\Visual Studio\ToBrasil\src\ToBrasil.Infrastructure.Identity\obj\Release\netcoreapp3.1\ToBrasil.Infrastructure.Identity.csproj.CopyComplete
+D:\Visual Studio\ToBrasil\src\ToBrasil.Infrastructure.Identity\obj\Release\netcoreapp3.1\ToBrasil.Infrastructure.Identity.dll
+D:\Visual Studio\ToBrasil\src\ToBrasil.Infrastructure.Identity\obj\Release\netcoreapp3.1\ToBrasil.Infrastructure.Identity.pdb
