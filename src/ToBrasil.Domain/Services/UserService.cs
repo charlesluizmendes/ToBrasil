@@ -12,11 +12,13 @@ namespace ToBrasil.Domain.Services
     public class UserService : BaseService<Users>, IUserService
     {
         private readonly IUserRepository _userRepository;
+        private readonly IAuthenticationService _authenticationService;
 
-        public UserService(IUserRepository userRepository)
+        public UserService(IUserRepository userRepository, IAuthenticationService authenticationService)
             : base(userRepository)
         {
             _userRepository = userRepository;
+            _authenticationService = authenticationService;
         }
 
         public override async Task<Users> InsertAsync(Users user)
@@ -33,7 +35,7 @@ namespace ToBrasil.Domain.Services
 
         public async Task<Users> GetUserByLoginAsync(Users user)
         {
-            var _user = await _userRepository.GetUserByEmailAsync(user);
+            var _user = await _userRepository.GetUserByLoginAsync(user);
 
             if (_user == null)
             {
@@ -47,6 +49,9 @@ namespace ToBrasil.Domain.Services
                 return null;
             }
 
+            var token = await _authenticationService.CreateJwtTokenAsync(_user);
+
+            _user.Token = token;
             _user.LastLogin = DateTime.Now;
 
             return await _userRepository.UpdateAsync(_user);

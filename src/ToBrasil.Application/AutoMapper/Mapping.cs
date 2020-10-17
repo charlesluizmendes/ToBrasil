@@ -15,15 +15,19 @@ namespace ToBrasil.Application.AutoMapper
             CreateMap<CadastroInputDTO, Users>()
                 .ForMember(entity => entity.UserName, opt => opt.MapFrom(dto => dto.Name))
                 .ForMember(entity => entity.PasswordHash, opt => opt.MapFrom(dto => dto.Password));                
-            CreateMap<Users, CadastroInputDTO>();       
-     
+            CreateMap<Users, CadastroInputDTO>();
+
+            CreateMap<CadastroOutputDTO, Users>();
+            CreateMap<Users, CadastroOutputDTO>()
+                .ForMember(dto => dto.Name, opt => opt.MapFrom(entity => entity.UserName));
+
             CreateMap<LoginInputDTO, Users>()
                 .ForMember(entity => entity.PasswordHash, opt => opt.MapFrom(dto => dto.Password));
             CreateMap<Users, LoginInputDTO>();
 
-            CreateMap<UserDTO, Users>();
-            CreateMap<Users, UserDTO>()
-                 .ForMember(dto => dto.Name, opt => opt.MapFrom(entity => entity.UserName));
+            CreateMap<LoginOutputDTO, Users>();
+            CreateMap<Users, LoginOutputDTO>()
+                .ForMember(dto => dto.Name, opt => opt.MapFrom(entity => entity.UserName));
 
             CreateMap<TokenDTO, Token>();
             CreateMap<Token, TokenDTO>();

@@ -20,11 +20,11 @@ namespace ToBrasil.Infrastructure.Identity.Services
             _configuration = configuration;
         }
 
-        public async Task<Token> CreateTokenByLoginAsync(Users login)
+        public async Task<Token> CreateJwtTokenAsync(Users user)
         {
             var claims = new[]
                 {
-                     new Claim(ClaimTypes.Email, login.Email.ToString()),
+                     new Claim(ClaimTypes.Email, user.Email.ToString()),
                 };
 
             var key = new SymmetricSecurityKey(
@@ -48,9 +48,10 @@ namespace ToBrasil.Infrastructure.Identity.Services
 
             return await Task.FromResult(new Token
             {
+                Id = user.Token != null ? user.Token.Id : Guid.Empty,
                 AccessKey = accessKey,
                 ValidTo = validTo,
-                UserId = login.Id                
+                UserId = user.Id
             });
         }
     }

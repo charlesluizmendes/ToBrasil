@@ -52,10 +52,7 @@ namespace ToBrasil.Service.API.Controllers
                 User = user
             });
 
-            var output = new CadastroOutputDTO
-            {
-                User = _mapper.Map<UserDTO>(cadastro)
-            };
+            var output = _mapper.Map<CadastroOutputDTO>(cadastro);            
 
             return new ObjectResult(output);
         }
@@ -80,16 +77,7 @@ namespace ToBrasil.Service.API.Controllers
                 return Unauthorized("Usuário e/ou senha inválidos");
             }
 
-            var token = await _mediator.Send(new GetTokenByLoginQuery
-            {
-                Login = login
-            });
-
-            var output = new LoginOutputDTO
-            {
-                User = _mapper.Map<UserDTO>(login),
-                Token = _mapper.Map<TokenDTO>(token)
-            };
+            var output = _mapper.Map<LoginOutputDTO>(login);
 
             return Ok(output);
         }

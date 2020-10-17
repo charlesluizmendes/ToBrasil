@@ -23,9 +23,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToBrasil.Infrastructure.IoC
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToBrasil.Infrastructure.Identity", "src\ToBrasil.Infrastructure.Identity\ToBrasil.Infrastructure.Identity.csproj", "{6FEDDE81-C09C-4F8A-9E43-669497E3110B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToBrasil.Service.API", "src\ToBrasil.Service.API\ToBrasil.Service.API.csproj", "{F084258D-AC30-41C1-867F-A3E63396B20D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToBrasil.Service.API", "src\ToBrasil.Service.API\ToBrasil.Service.API.csproj", "{F084258D-AC30-41C1-867F-A3E63396B20D}"
 EndProject
-Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{485A5A11-9929-4378-854E-5A47D486E310}"
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{62C9571D-46C3-44F5-B2EF-A1FBFCB2E6E1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,10 +57,10 @@ Global
 		{F084258D-AC30-41C1-867F-A3E63396B20D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F084258D-AC30-41C1-867F-A3E63396B20D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F084258D-AC30-41C1-867F-A3E63396B20D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{485A5A11-9929-4378-854E-5A47D486E310}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{485A5A11-9929-4378-854E-5A47D486E310}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{485A5A11-9929-4378-854E-5A47D486E310}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{485A5A11-9929-4378-854E-5A47D486E310}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62C9571D-46C3-44F5-B2EF-A1FBFCB2E6E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62C9571D-46C3-44F5-B2EF-A1FBFCB2E6E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62C9571D-46C3-44F5-B2EF-A1FBFCB2E6E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62C9571D-46C3-44F5-B2EF-A1FBFCB2E6E1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

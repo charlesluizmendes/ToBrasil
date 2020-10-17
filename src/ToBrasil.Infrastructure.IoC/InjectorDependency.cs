@@ -28,7 +28,6 @@ namespace ToBrasil.Infrastructure.IoC
 
             container.AddMediatR(Assembly.GetExecutingAssembly());           
             container.AddTransient<IRequestHandler<CreateUserCommand, Users>, CreateUserCommandHandler>();
-            container.AddTransient<IRequestHandler<GetTokenByLoginQuery, Token>, GetTokenByLoginQueryHandler>();
             container.AddTransient<IRequestHandler<GetUserByEmailQuery, Users>, GetUserByEmailQueryHandler>();
             container.AddTransient<IRequestHandler<GetUserByLoginQuery, Users>, GetUserByLoginQueryHandler>();
 

@@ -8,6 +8,6 @@ namespace ToBrasil.Domain.Interfaces.Services
 {
     public interface IAuthenticationService
     {
-        Task<Token> CreateTokenByLoginAsync(Users login);
+        Task<Token> CreateJwtTokenAsync(Users user);
     }
 }

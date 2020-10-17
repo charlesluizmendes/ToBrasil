@@ -101,5 +101,34 @@ namespace ToBrasil.Infrastructure.Data.Repository
                 throw ex;
             }
         }
+
+        public async Task<Users> GetUserByLoginAsync(Users user)
+        {
+            try
+            {
+                var result = await _factory.GetConnection()
+                    .QueryAsync<Users, Phone, Token, Users>($"" +
+                    $"Select * From Users " +
+                    $"Inner Join Phone on Users.Id = Phone.UserId " +
+                    $"Left Join Token on Users.Id = Token.UserId " +
+                    $"Where Users.Email = '{ user.Email }'" +
+                    $"", map: (users, phone, token) =>
+                    {
+                        users.Phones = new List<Phone>();
+                        users.Phones.Add(phone);
+
+                        users.Token = token;
+
+                        return users;
+                    });
+
+                return result.FirstOrDefault();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

@@ -172,7 +172,8 @@ namespace ToBrasil.Infrastructure.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("UserId")
+                        .IsUnique();
 
                     b.ToTable("Token");
                 });
@@ -310,8 +311,8 @@ namespace ToBrasil.Infrastructure.Data.Migrations
             modelBuilder.Entity("ToBrasil.Domain.Entities.Token", b =>
                 {
                     b.HasOne("ToBrasil.Domain.Entities.Users", "User")
-                        .WithMany("Token")
-                        .HasForeignKey("UserId")
+                        .WithOne("Token")
+                        .HasForeignKey("ToBrasil.Domain.Entities.Token", "UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

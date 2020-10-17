@@ -3,7 +3,7 @@
   <PropertyGroup Label="Globals">
     <ProjectVersion>2.1</ProjectVersion>
     <DockerTargetOS>Linux</DockerTargetOS>
-    <ProjectGuid>485a5a11-9929-4378-854e-5a47d486e310</ProjectGuid>
+    <ProjectGuid>62c9571d-46c3-44f5-b2ef-a1fbfcb2e6e1</ProjectGuid>
     <DockerLaunchAction>LaunchBrowser</DockerLaunchAction>
     <DockerServiceUrl>{Scheme}://localhost:{ServicePort}/swagger</DockerServiceUrl>
     <DockerServiceName>tobrasil.service.api</DockerServiceName>

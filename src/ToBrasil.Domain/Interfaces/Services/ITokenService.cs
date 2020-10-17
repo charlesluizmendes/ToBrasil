@@ -8,6 +8,5 @@ namespace ToBrasil.Domain.Interfaces.Services
 {
     public interface ITokenService : IBaseService<Token>
     {
-        Task<Token> CreateTokenByLoginAsync(Users login);
     }
 }

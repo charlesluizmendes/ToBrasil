@@ -16,6 +16,6 @@ namespace ToBrasil.Domain.Entities
 
         public virtual ICollection<Phone> Phones { get; set; }
 
-        public virtual ICollection<Token> Token { get; set; }
+        public virtual Token Token { get; set; }
     }
 }
