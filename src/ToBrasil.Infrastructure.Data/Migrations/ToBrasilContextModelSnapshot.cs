@@ -129,25 +129,6 @@ namespace ToBrasil.Infrastructure.Data.Migrations
                     b.ToTable("AspNetUserRoles");
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<System.Guid>", b =>
-                {
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("LoginProvider")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("Value")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("UserId", "LoginProvider", "Name");
-
-                    b.ToTable("AspNetUserTokens");
-                });
-
             modelBuilder.Entity("ToBrasil.Domain.Entities.Phone", b =>
                 {
                     b.Property<Guid>("Id")
@@ -170,6 +151,30 @@ namespace ToBrasil.Infrastructure.Data.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Phone");
+                });
+
+            modelBuilder.Entity("ToBrasil.Domain.Entities.Token", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("AccessKey")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("ValidTo")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Token");
                 });
 
             modelBuilder.Entity("ToBrasil.Domain.Entities.Users", b =>
@@ -293,19 +298,19 @@ namespace ToBrasil.Infrastructure.Data.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<System.Guid>", b =>
+            modelBuilder.Entity("ToBrasil.Domain.Entities.Phone", b =>
                 {
-                    b.HasOne("ToBrasil.Domain.Entities.Users", null)
-                        .WithMany()
+                    b.HasOne("ToBrasil.Domain.Entities.Users", "User")
+                        .WithMany("Phones")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("ToBrasil.Domain.Entities.Phone", b =>
+            modelBuilder.Entity("ToBrasil.Domain.Entities.Token", b =>
                 {
                     b.HasOne("ToBrasil.Domain.Entities.Users", "User")
-                        .WithMany("Phones")
+                        .WithMany("Token")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();

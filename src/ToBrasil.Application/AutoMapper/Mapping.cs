@@ -25,13 +25,11 @@ namespace ToBrasil.Application.AutoMapper
             CreateMap<Users, UserDTO>()
                  .ForMember(dto => dto.Name, opt => opt.MapFrom(entity => entity.UserName));
 
+            CreateMap<TokenDTO, Token>();
+            CreateMap<Token, TokenDTO>();
+
             CreateMap<PhoneDTO, Phone>();
             CreateMap<Phone, PhoneDTO>();
-
-            CreateMap<TokenDTO, string[]>();              
-            CreateMap<string[], TokenDTO>()
-                .ForMember(dto => dto.Token, opt => opt.MapFrom(entity => entity[0]))
-                .ForMember(dto => dto.Valid, opt => opt.MapFrom(entity => entity[1]));
         }
     }
 }

@@ -6,7 +6,7 @@ using ToBrasil.Domain.Entities;
 
 namespace ToBrasil.Domain.Interfaces.Services
 {
-    public interface ITokenService : IBaseService<Token>
+    public interface IAuthenticationService
     {
         Task<Token> CreateTokenByLoginAsync(Users login);
     }

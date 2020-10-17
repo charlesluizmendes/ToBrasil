@@ -6,8 +6,8 @@ namespace ToBrasil.Application.DTO
 {
     public class TokenDTO
     {
-        public string Token { get; set; }
+        public string AccessKey { get; set; }
 
-        public string Valid { get; set; }
+        public string ValidTo { get; set; }
     }
 }

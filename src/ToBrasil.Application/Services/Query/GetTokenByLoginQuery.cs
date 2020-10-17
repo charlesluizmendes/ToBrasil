@@ -6,8 +6,8 @@ using ToBrasil.Domain.Entities;
 
 namespace ToBrasil.Application.Services.Query
 {
-    public class GetTokenByEmailQuery : IRequest<string []>
+    public class GetTokenByLoginQuery : IRequest<Token>
     {
-        public Users User { get; set; }
+        public Users Login { get; set; }
     }
 }

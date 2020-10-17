@@ -11,20 +11,20 @@ using ToBrasil.Domain.Interfaces.Services;
 
 namespace ToBrasil.Infrastructure.Identity.Services
 {
-    public class TokenService : ITokenService
+    public class AuthenticationService : IAuthenticationService
     {
         private readonly IConfiguration _configuration;
 
-        public TokenService(IConfiguration configuration)
+        public AuthenticationService(IConfiguration configuration)
         {
             _configuration = configuration;
         }
 
-        public async Task<string[]> CreateJwtToken(Users user)
+        public async Task<Token> CreateTokenByLoginAsync(Users login)
         {
             var claims = new[]
                 {
-                     new Claim(ClaimTypes.Email, user.Email.ToString()),
+                     new Claim(ClaimTypes.Email, login.Email.ToString()),
                 };
 
             var key = new SymmetricSecurityKey(
@@ -43,10 +43,15 @@ namespace ToBrasil.Infrastructure.Identity.Services
                 signingCredentials: creds
                 );
 
-            var token = new JwtSecurityTokenHandler().WriteToken(jwt);
-            var valid = jwt.ValidTo.ToString();
+            var accessKey = new JwtSecurityTokenHandler().WriteToken(jwt);
+            var validTo = jwt.ValidTo.ToString();
 
-            return await Task.FromResult(new string[] { token, valid });
+            return await Task.FromResult(new Token
+            {
+                AccessKey = accessKey,
+                ValidTo = validTo,
+                UserId = login.Id                
+            });
         }
     }
 }

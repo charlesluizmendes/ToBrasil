@@ -28,9 +28,9 @@ namespace ToBrasil.Infrastructure.IoC
 
             container.AddMediatR(Assembly.GetExecutingAssembly());           
             container.AddTransient<IRequestHandler<CreateUserCommand, Users>, CreateUserCommandHandler>();
+            container.AddTransient<IRequestHandler<GetTokenByLoginQuery, Token>, GetTokenByLoginQueryHandler>();
             container.AddTransient<IRequestHandler<GetUserByEmailQuery, Users>, GetUserByEmailQueryHandler>();
             container.AddTransient<IRequestHandler<GetUserByLoginQuery, Users>, GetUserByLoginQueryHandler>();
-            container.AddTransient<IRequestHandler<GetTokenByEmailQuery, string []>, GetTokenByEmailQueryHandler>();
 
             // Service
 
@@ -43,7 +43,12 @@ namespace ToBrasil.Infrastructure.IoC
 
             container.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
             container.AddScoped<IUserRepository, UserRepository>();
+            container.AddScoped<ITokenRepository, TokenRepository>();
             container.AddScoped<IPhoneRepository, PhoneRepository>();
+
+            // Identity
+
+            container.AddScoped<IAuthenticationService, AuthenticationService>();
         }
     }
 }

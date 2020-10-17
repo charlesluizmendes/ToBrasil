@@ -80,9 +80,9 @@ namespace ToBrasil.API.Controllers
                 return Unauthorized("Usuário e/ou senha inválidos");
             }
 
-            var token = await _mediator.Send(new GetTokenByEmailQuery
+            var token = await _mediator.Send(new GetTokenByLoginQuery
             { 
-                User = user
+                Login = login
             });
 
             var output = new LoginOutputDTO

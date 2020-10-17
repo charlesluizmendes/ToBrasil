@@ -18,6 +18,7 @@ namespace ToBrasil.Infrastructure.Data.Context
         }
 
         public virtual DbSet<Users> User { get; set; }
+        public virtual DbSet<Token> Token { get; set; }
         public virtual DbSet<Phone> Phone { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
@@ -27,10 +28,12 @@ namespace ToBrasil.Infrastructure.Data.Context
             builder.Entity<Users>(e => 
             {
                 e.ToTable("Users");
-                e.Property(d => d.Created).ValueGeneratedOnAdd().HasDefaultValueSql("GETDATE()");
-                e.Property(d => d.Modified).ValueGeneratedOnUpdate().HasComputedColumnSql("GETDATE()");
-                e.Property(d => d.Modified).Metadata.SetBeforeSaveBehavior(PropertySaveBehavior.Ignore);
-            });     
+                e.Property(p => p.Created).ValueGeneratedOnAdd().HasDefaultValueSql("GETDATE()");
+                e.Property(p => p.Modified).ValueGeneratedOnUpdate().HasComputedColumnSql("GETDATE()");
+                e.Property(p => p.Modified).Metadata.SetBeforeSaveBehavior(PropertySaveBehavior.Ignore);
+            });
+
+            builder.Ignore<IdentityUserToken<Guid>>();
         }
     }
 }
