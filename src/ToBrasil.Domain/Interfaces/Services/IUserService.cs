@@ -8,8 +8,6 @@ namespace ToBrasil.Domain.Interfaces.Services
 {
     public interface IUserService : IBaseService<Users>
     {
-        Task<Users> GetUserByEmailAsync(Users user);
-
         Task<Users> GetUserByLoginAsync(Users user);
     }
 }

@@ -23,19 +23,21 @@ namespace ToBrasil.Domain.Services
 
         public override async Task<Users> InsertAsync(Users user)
         {
+            var _user = await _userRepository.GetUserByEmailAsync(user);
+
+            if (_user != null)
+            {
+                return null;
+            }
+
             user.PasswordHash = HasherExtension.HashPassword(user.PasswordHash);
 
             return await _userRepository.InsertAsync(user);
         }
 
-        public async Task<Users> GetUserByEmailAsync(Users user)
-        {
-            return await _userRepository.GetUserByEmailAsync(user);
-        }
-
         public async Task<Users> GetUserByLoginAsync(Users user)
         {
-            var _user = await _userRepository.GetUserByLoginAsync(user);
+            var _user = await _userRepository.GetUserByEmailAsync(user);
 
             if (_user == null)
             {

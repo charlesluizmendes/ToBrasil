@@ -32,13 +32,18 @@ namespace ToBrasil.Infrastructure.Data.Repository
             try
             {
                 var result = await _factory.GetConnection()
-                    .QueryAsync<Users, Phone, Users>($"" +
+                    .QueryAsync<Users, Phone, Token, Users>($"" +
                     $"Select * From Users " +
                     $"Inner Join Phone on Users.Id = Phone.UserId " +
-                    $"", map: (users, phone) =>
+                    $"Left Join Token on Users.Id = Token.UserId " +
+                    $"", map: (users, phone, token) =>
                     {
-                        users.Phones = new List<Phone>();
-                        users.Phones.Add(phone);
+                        if (phone != null)
+                            users.Phones = new List<Phone>();
+                            users.Phones.Add(phone);
+
+                        if (token != null)
+                            users.Token = token;
 
                         return users;
                     });
@@ -56,14 +61,19 @@ namespace ToBrasil.Infrastructure.Data.Repository
             try
             {
                 var result = await _factory.GetConnection()
-                    .QueryAsync<Users, Phone, Users>($"" +
+                    .QueryAsync<Users, Phone, Token, Users>($"" +
                     $"Select * From Users " +
                     $"Inner Join Phone on Users.Id = Phone.UserId " +
+                    $"Left Join Token on Users.Id = Token.UserId " +
                     $"Where Users.Id = '{ id }'" +
-                    $"", map: (users, phone) =>
+                    $"", map: (users, phone, token) =>
                     {
-                        users.Phones = new List<Phone>();
-                        users.Phones.Add(phone);
+                        if (phone != null)
+                            users.Phones = new List<Phone>();
+                            users.Phones.Add(phone);
+
+                        if (token != null)
+                            users.Token = token;
 
                         return users;
                     });
@@ -81,32 +91,6 @@ namespace ToBrasil.Infrastructure.Data.Repository
             try
             {
                 var result = await _factory.GetConnection()
-                    .QueryAsync<Users, Phone, Users>($"" +
-                    $"Select * From Users " +
-                    $"Inner Join Phone on Users.Id = Phone.UserId " +
-                    $"Where Users.Email = '{ user.Email }'" +
-                    $"", map: (users, phone) =>
-                    {
-                        users.Phones = new List<Phone>();
-                        users.Phones.Add(phone);
-
-                        return users;
-                    });
-
-                return result.FirstOrDefault();
-
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-
-        public async Task<Users> GetUserByLoginAsync(Users user)
-        {
-            try
-            {
-                var result = await _factory.GetConnection()
                     .QueryAsync<Users, Phone, Token, Users>($"" +
                     $"Select * From Users " +
                     $"Inner Join Phone on Users.Id = Phone.UserId " +
@@ -114,10 +98,12 @@ namespace ToBrasil.Infrastructure.Data.Repository
                     $"Where Users.Email = '{ user.Email }'" +
                     $"", map: (users, phone, token) =>
                     {
-                        users.Phones = new List<Phone>();
-                        users.Phones.Add(phone);
+                        if (phone != null)
+                            users.Phones = new List<Phone>();
+                            users.Phones.Add(phone);
 
-                        users.Token = token;
+                        if (token != null)
+                            users.Token = token;
 
                         return users;
                     });

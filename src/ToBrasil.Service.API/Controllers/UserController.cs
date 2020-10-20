@@ -35,26 +35,17 @@ namespace ToBrasil.Service.API.Controllers
                 return BadRequest(cadastroDTO);
             }
 
-            var user = _mapper.Map<Users>(cadastroDTO);
-
-            var email = await _mediator.Send(new GetUserByEmailQuery
-            {
-                User = user
-            });
-
-            if (email != null)
-            {
-                return BadRequest("E-mail já existente");
-            }
-
             var cadastro = await _mediator.Send(new CreateUserCommand
             {
-                User = user
+                User = _mapper.Map<Users>(cadastroDTO)
             });
 
-            var output = _mapper.Map<CadastroOutputDTO>(cadastro);            
+            if (cadastro == null)
+            {
+                return BadRequest("E-mail já existente");
+            }            
 
-            return new ObjectResult(output);
+            return new ObjectResult(_mapper.Map<CadastroOutputDTO>(cadastro));
         }
 
         [HttpPost("Login")]
@@ -65,11 +56,9 @@ namespace ToBrasil.Service.API.Controllers
                 return BadRequest(loginDTO);
             }
 
-            var user = _mapper.Map<Users>(loginDTO);
-
             var login = await _mediator.Send(new GetUserByLoginQuery
             {
-                User = user
+                User = _mapper.Map<Users>(loginDTO)
             });
 
             if (login == null)
@@ -77,9 +66,7 @@ namespace ToBrasil.Service.API.Controllers
                 return Unauthorized("Usuário e/ou senha inválidos");
             }
 
-            var output = _mapper.Map<LoginOutputDTO>(login);
-
-            return Ok(output);
+            return Ok(_mapper.Map<LoginOutputDTO>(login));
         }
     }
 }

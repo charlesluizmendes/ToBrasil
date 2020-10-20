@@ -9,7 +9,5 @@ namespace ToBrasil.Domain.Interfaces.Repository
     public interface IUserRepository : IBaseRepository<Users>
     {
         Task<Users> GetUserByEmailAsync(Users user);
-
-        Task<Users> GetUserByLoginAsync(Users user);
     }
 }
